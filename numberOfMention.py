@@ -1,7 +1,8 @@
 import pandas as pd
 import csv
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Anxiety.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Thickening near armpit and prominent veins, heaviness.csv")
 name1= data['name']
+numberOfpost=data['no_of_posts']
 name=[]
 
 
@@ -19,6 +20,7 @@ commentArrayLangth=len(comment)
 
 if nameArrayLength==commentArrayLangth:
     NameAndMenCount=[]
+    indexinArray = 0
     for x in name:
         a=0;
         oneNameAndMenCount = []
@@ -31,13 +33,15 @@ if nameArrayLength==commentArrayLangth:
                 if str(x).lower().replace('…', '') in str(y).lower():
                     a=a+1
             indexOfCommentArray=indexOfCommentArray+1
+
         oneNameAndMenCount.append(x.replace('…', '').strip())
         oneNameAndMenCount.append(a)
+        oneNameAndMenCount.append(numberOfpost[indexinArray])
         NameAndMenCount.append(oneNameAndMenCount)
-        #print(oneNameAndMenCount)
-        #print(x.replace('…', '')+"-",a)
+        indexinArray = indexinArray + 1
 
 
+#delete repeated users
 
     index1=0
     print(NameAndMenCount)
@@ -54,10 +58,11 @@ if nameArrayLength==commentArrayLangth:
     print(NameAndMenCount)
 
 
-
+#write csv file
 with open('person.csv', 'a', newline='') as csvFile:
+    csvFile.write("Username,Mention count,Number Of post\n")
     writer = csv.writer(csvFile)
     writer.writerows(NameAndMenCount)
-
+    writer.writerows(NameAndMenCount)
 
 csvFile.close()

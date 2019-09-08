@@ -25,8 +25,7 @@ with open('data.csv', 'w', encoding="utf-8") as f:
         comments = driver.find_elements_by_class_name('user-post')
         driver.execute_script("[...document.querySelectorAll('.reply')].map(el => el.parentNode.removeChild(el))")
         driver.execute_script("[...document.querySelectorAll('.signature')].map(el => el.parentNode.removeChild(el))")
-        driver.execute_script(
-            "[...document.querySelectorAll('.user-entered-part')].map(el => el.parentNode.removeChild(el))")
+        driver.execute_script("[...document.querySelectorAll('.user-entered-part')].map(el => el.parentNode.removeChild(el))")
 
         i = 0
         for comment in comments:
@@ -56,9 +55,7 @@ with open('data.csv', 'w', encoding="utf-8") as f:
                 e = split4[1]
                 print(e)
 
-                f.write(str(k) + "," + a.replace(',', '') + "," + b + "," + c.replace(' ', '').replace(',',
-                                                                                                       '') + "," + d + "," + e.lstrip().replace(
-                    ',', '').replace('\n', ' ').replace('\r', '') + "\n")
+                f.write(str(k) + "," + a.replace(',', '') + "," + b + "," + c.replace(' ', '').replace(',','') + "," + d + "," + e.lstrip().replace(',', '').replace('\n', ' ').replace('\r', '') + "\n")
 
             elif i == 0 and j != 0:
                 print("a")
@@ -95,9 +92,7 @@ with open('data.csv', 'w', encoding="utf-8") as f:
                     e = split4[1]
                     print(e)
 
-                f.write(str(k) + "," + a.replace(',', '') + "," + b + "," + c.replace(' ', '').replace(',',
-                                                                                                       '') + "," + d + "," + e.lstrip().replace(
-                    ',', '').replace('\n', ' ').replace('\r', '') + "\n")
+                f.write(str(k) + "," + a.replace(',', '') + "," + b + "," + c.replace(' ', '').replace(',','') + "," + d + "," + e.lstrip().replace(',', '').replace('\n', ' ').replace('\r', '') + "\n")
             i = i + 1
             k = k + 1
 
