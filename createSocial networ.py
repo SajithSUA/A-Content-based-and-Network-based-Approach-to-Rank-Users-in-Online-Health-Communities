@@ -19,7 +19,7 @@ def removesamevalueInlist(list) :
 
 
 #add data set
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Thickening near armpit and prominent veins, heaviness.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Worried I'm overreacting.csv")
 name1= data['name']
 comment=data['comment']
 #print (name1)
@@ -166,6 +166,8 @@ with open('person3.csv', 'a', newline='') as csvFile:
     csvFile.write("Username,Comment,mention name\n")
     writer = csv.writer(csvFile)
     writer.writerows(nameAndMention)
+
+# danatamath mention kenek nathi original poster nowena aya comment eka dala tiyenne initial post ekata kiyala hitala e ayage mention karapu kene original poster karanawa
 
 csvFile.close()
 
