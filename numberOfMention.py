@@ -1,6 +1,6 @@
 import pandas as pd
 import csv
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Thickening near armpit and prominent veins, heaviness.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Interpreting Your Report.csv")
 name1= data['name']
 numberOfpost=data['no_of_posts']
 name=[]
@@ -62,7 +62,6 @@ if nameArrayLength==commentArrayLangth:
 with open('person.csv', 'a', newline='') as csvFile:
     csvFile.write("Username,Mention count,Number Of post\n")
     writer = csv.writer(csvFile)
-    writer.writerows(NameAndMenCount)
     writer.writerows(NameAndMenCount)
 
 csvFile.close()
