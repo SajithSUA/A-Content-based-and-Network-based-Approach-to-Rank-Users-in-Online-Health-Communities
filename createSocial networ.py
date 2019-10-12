@@ -19,7 +19,7 @@ def removesamevalueInlist(list) :
 
 
 #add data set
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Anxiety.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Interpreting Mammograms- Calcifications.csv")
 name1= data['name']
 comment=data['comment']
 #print (name1)
@@ -52,7 +52,7 @@ print(len(nameList))
 #     for x in nameList:
 #      q.write(x+"\n")
 
-print(nameCommentMention)
+#print(nameCommentMention)
 
 indexInnameCommentMention=0
 for x in nameCommentMention:
@@ -185,6 +185,57 @@ with open('userConnection4.csv', 'a', newline='') as csvFile:
     writer.writerows(nameAndMention)
 csvFile.close()
 
+
+# create social network
+# we create final social network using "nameAndMention" array
+#first we get name List(only users in 1 tread)
+# next we check 1 elemnt eka nameAndMention eke first element eke saha nameList eke ituru eliment eka mention names wala inna count eka
+
+
+# FinalsocialNetwork =[]
+# for oneName1 in nameList:
+#     oneFinalsocialNetwork = []
+#     oneFinalsocialNetwork.append(oneName1)
+#     for x in nameAndMention:
+#         if oneName1==x[0]:
+#             for oneName2 in nameList:
+#                 count=0
+#                 for x1 in nameAndMention:
+#                     if oneName1==x1[0] and oneName2 in x1[1]:
+#                         count=count+1
+#                 oneFinalsocialNetwork.append(count)
+#     FinalsocialNetwork.append(oneFinalsocialNetwork)
+#
+# print(FinalsocialNetwork)
+
+
+FinalsocialNetwork =[]
+for oneName1 in nameList:
+    oneFinalsocialNetwork = []
+    oneFinalsocialNetwork.append(oneName1)
+    for oneName2 in nameList:
+        count = 0
+        for x in nameAndMention:
+            if oneName1 in x[0] and oneName2 in x[1]:
+                count = count + 1
+        oneFinalsocialNetwork.append(count)
+    FinalsocialNetwork.append(oneFinalsocialNetwork)
+print(nameAndMention)
+print(FinalsocialNetwork)
+
+
+#social network print
+
+with open('socialNetwork.csv', 'a', newline='') as csvFile:
+    a="name"
+    for name in nameList:
+        a=a+","+name
+    a=a+"\n"
+    print
+    csvFile.write(a)
+    writer = csv.writer(csvFile)
+    writer.writerows(FinalsocialNetwork)
+csvFile.close()
 
 
 
