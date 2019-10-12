@@ -19,7 +19,7 @@ def removesamevalueInlist(list) :
 
 
 #add data set
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Worried I'm overreacting.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Anxiety.csv")
 name1= data['name']
 comment=data['comment']
 #print (name1)
@@ -84,8 +84,8 @@ for x in nameCommentMention:
     onenameAndMention.append(x[2])
     nameAndMention.append(onenameAndMention)
 
-with open('person.csv', 'a', newline='') as csvFile:
-    csvFile.write("Username,Comment,mention name\n")
+with open('userConnection.csv', 'a', newline='') as csvFile:
+    csvFile.write("Username,mention name\n")
     writer = csv.writer(csvFile)
     writer.writerows(nameAndMention)
 
@@ -112,8 +112,8 @@ for x in nameAndMention:
     indexOfnameAndMention+=1
 
 
-with open('person1.csv', 'a', newline='') as csvFile:
-    csvFile.write("Username,Comment,mention name\n")
+with open('userConnection1.csv', 'a', newline='') as csvFile:
+    csvFile.write("Username,mention name\n")
     writer = csv.writer(csvFile)
     writer.writerows(nameAndMention)
 
@@ -132,7 +132,7 @@ for x in nameAndMention:
                 else:
                     if x[0] in y[1]:
                       update=[]
-                      update.append("123"+y[0])
+                      update.append(y[0])
                       x.pop(1)
                       x.insert(1,update)
                       nameAndMention.pop(indexOfnameAndMention)
@@ -141,8 +141,8 @@ for x in nameAndMention:
                 i=i+1
 
     indexOfnameAndMention+=1
-with open('person2.csv', 'a', newline='') as csvFile:
-    csvFile.write("Username,Comment,mention name\n")
+with open('userConnection2.csv', 'a', newline='') as csvFile:
+    csvFile.write("Username,mention name\n")
     writer = csv.writer(csvFile)
     writer.writerows(nameAndMention)
 
@@ -156,20 +156,37 @@ for x in nameAndMention:
             y=nameAndMention[i]
             if x[0] in y[1]:
                       update=[]
-                      update.append("456"+y[0])
+                      update.append(y[0])
                       x.pop(1)
                       x.insert(1,update)
                       nameAndMention.pop(indexOfnameAndMention)
                       nameAndMention.insert(indexOfnameAndMention,x)
-
-with open('person3.csv', 'a', newline='') as csvFile:
-    csvFile.write("Username,Comment,mention name\n")
+    indexOfnameAndMention += 1
+with open('userConnection3.csv', 'a', newline='') as csvFile:
+    csvFile.write("Username,mention name\n")
     writer = csv.writer(csvFile)
     writer.writerows(nameAndMention)
 
 # danatamath mention kenek nathi original poster nowena aya comment eka dala tiyenne initial post ekata kiyala hitala e ayage mention karapu kene original poster karanawa
+indexOfnameAndMention=0
+for x in nameAndMention:
+    if x[1]=='no' and x[0]!=originalPoster :
+        update = []
+        update.append(originalPoster)
+        x.pop(1)
+        x.insert(1, update)
+        nameAndMention.pop(indexOfnameAndMention)
+        nameAndMention.insert(indexOfnameAndMention, x)
+    indexOfnameAndMention += 1
 
+with open('userConnection4.csv', 'a', newline='') as csvFile:
+    csvFile.write("Username,mention name\n")
+    writer = csv.writer(csvFile)
+    writer.writerows(nameAndMention)
 csvFile.close()
+
+
+
 
 
 
