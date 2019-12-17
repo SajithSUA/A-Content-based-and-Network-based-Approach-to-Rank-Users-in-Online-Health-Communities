@@ -4,29 +4,35 @@ import pandas as pd
 from fractions import Fraction
 def display_format(my_vector, my_decimal):
    return np.round((my_vector).astype(np.float), decimals=my_decimal)
-my_dp = Fraction(1,3)
+my_dp = Fraction(1,5)
 print(my_dp)
-Mat = np.matrix([[0,0,1],
-        [Fraction(1,2),0,0],
-        [Fraction(1,2),1,0]])
-Ex = np.zeros((3,3))
+Mat = np.matrix([[0,1,1,1,1],
+        [1/3,0,0,0,0],
+        [1/3,0,0,0,0],
+        [0,0,0,0,0],
+        [1/3,0,0,0,0]])
+Ex = np.zeros((5,5))
 
 Ex[:] = my_dp
 
 
 beta = 0.8
 Al = beta * Mat + ((1-beta) * Ex)
-r = np.matrix([my_dp, my_dp, my_dp])
+r = np.matrix([my_dp, my_dp, my_dp, my_dp, my_dp])
 r = np.transpose(r)
 
 previous_r = r
-for i in range(1,100):
+count=0
+for i in range(1,10000):
    r = Al * r
-   #print (display_format(r,3))
+   print (r)
    if (previous_r==r).all():
       break
    previous_r = r
+   count=count+1
 
-print()
+print(count)
 print ("Final:\n", display_format(r,3))
 print ("sum", np.sum(r))
+p=r.item(0)
+print(p)

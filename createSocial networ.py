@@ -19,7 +19,7 @@ def removesamevalueInlist(list) :
 
 
 #add data set
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Interpreting Mammograms- Calcifications.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Anxiety.csv")
 name1= data['name']
 comment=data['comment']
 #print (name1)
@@ -43,10 +43,10 @@ for x in name:
     nameCommentMention.append(oneNameCommentMention)
     index+=1
 
-print(len(nameCommentMention))
+#print(len(nameCommentMention))
 
 nameList= removesamevalueInlist(name)
-print(len(nameList))
+#print(len(nameList))
 
 # with open('person1.csv', 'a', newline='') as q:
 #     for x in nameList:
@@ -220,7 +220,15 @@ for oneName1 in nameList:
                 count = count + 1
         oneFinalsocialNetwork.append(count)
     FinalsocialNetwork.append(oneFinalsocialNetwork)
+print("")
+print("")
+print("")
+print("-------------------------------------------- name and mentions name in form --------------------------------------------")
 print(nameAndMention)
+print("")
+print("")
+print("")
+print("-------------------------------------------- Social network array --------------------------------------------")
 print(FinalsocialNetwork)
 
 
@@ -239,8 +247,101 @@ csvFile.close()
 
 
 
+#create page rank social network array
+
+import numpy as np
+import scipy as sc
+import pandas as pd
+from fractions import Fraction
 
 
+array=[]
+for x in FinalsocialNetwork:
+    count=0
+    onearray=[]
+    nu=0
+    for y in x:
+        if not nu==0:
+            if int(y)>0:
+                count=count+1
+        nu=nu+1
+    nu1=0
+    for t in x:
+        if not nu1 == 0:
+            if int(t)>0:
+                onearray.append(1/count)
+            else:
+                onearray.append(0)
+        nu1=nu1+1
+    array.append(onearray)
+
+
+
+r1=np.matrix(array)
+print("")
+print("")
+print("")
+print("-------------------------------------------- Page rank input metrix --------------------------------------------")
+print(r1)
+Mat = np.transpose(r1)
+print(Mat)
+
+#Page rank algorithem
+
+def display_format(my_vector, my_decimal):
+   return np.round((my_vector).astype(np.float), decimals=my_decimal)
+my_dp = Fraction(1,len(nameList))
+
+
+print(my_dp)
+# Mat = np.matrix([[0,0,1],
+#         [1/2,0,0],
+#         [1/2,1,0]])
+Ex = np.zeros((len(nameList),len(nameList)))
+
+Ex[:] = my_dp
+
+
+beta = 0.8
+Al = beta * Mat + ((1-beta) * Ex)
+array=[]
+for i in nameList:
+    array.append(my_dp)
+r = np.matrix(array)
+r = np.transpose(r)
+
+previous_r = r
+for i in range(1,100):
+   r = Al * r
+   #print (display_format(r,3))
+   if (previous_r==r).all():
+      break
+   previous_r = r
+print("")
+print("")
+print("")
+print("-------------------------------------------- page rank value --------------------------------------------")
+print ("Final:\n", display_format(r,3))
+print ("sum", np.sum(r))
+
+
+
+#page rank marks in users
+allArray=[]
+
+count2=0
+for q in nameList:
+    array1 = []
+    array1.append(q)
+    array1.append(r.item(count2))
+    allArray.append(array1)
+    count2=count2+1
+
+with open('PageRankScore.csv', 'a', newline='') as csvFile:
+    csvFile.write("Username,Page Rank score \n")
+    writer = csv.writer(csvFile)
+    writer.writerows(allArray)
+csvFile.close()
 
 
 
