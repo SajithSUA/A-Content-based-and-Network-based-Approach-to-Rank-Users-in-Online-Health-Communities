@@ -1,19 +1,49 @@
-import networkx as nx
-import matplotlib.pyplot as plt
+from collections import Counter
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
-G = nx.DiGraph()
 
-G.add_edges_from([('A', 'D'), ('B', 'C'), ('B', 'E'), ('C', 'A'),
-                  ('D', 'C'), ('E', 'D'), ('E', 'B'), ('E', 'F'),
-                  ('E', 'C'), ('F', 'C'), ('F', 'H'), ('G', 'A'),
-                  ('G', 'C'), ('H', 'A')])
+def get_jaccard_sim(str1, str2):
+    a = set(str1.split())
+    b = set(str2.split())
+    c = a.intersection(b)
+    print(a)
+    print(b)
+    print(c)
+    return float(len(c)) / (len(a) + len(b) - len(c))
 
-plt.figure(figsize=(10, 10))
-nx.draw_networkx(G, with_labels=True)
+a=get_jaccard_sim("AI is our friend and it has been friend","AI and humans has always been friend")
+print(a)
 
-hubs, authorities = nx.hits(G, max_iter=50, normalized=True)
-# The in-built hits function returns two dictionaries keyed by nodes
-# containing hub scores and authority scores respectively.
+import re, math
+from collections import Counter
 
-print("Hub Scores: ", hubs)
-print("Authority Scores: ", authorities) 
+WORD = re.compile(r'\w+')
+
+def get_cosine(vec1, vec2):
+     intersection = set(vec1.keys()) & set(vec2.keys())
+     numerator = sum([vec1[x] * vec2[x] for x in intersection])
+
+     sum1 = sum([vec1[x]**2 for x in vec1.keys()])
+     sum2 = sum([vec2[x]**2 for x in vec2.keys()])
+     denominator = math.sqrt(sum1) * math.sqrt(sum2)
+
+     if not denominator:
+        return 0.0
+     else:
+        return float(numerator) / denominator
+
+def text_to_vector(text):
+     words = WORD.findall(text)
+     return Counter(words)
+
+text1 = "AI is our friend and it has been friend"
+text2 = " my friends and it has been friend AI is"
+
+vector1 = text_to_vector(text1)
+vector2 = text_to_vector(text2)
+print (vector1)
+print (vector2)
+cosine = get_cosine(vector1, vector2)
+
+print ('Cosine:', cosine)
