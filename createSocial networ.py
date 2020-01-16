@@ -5,8 +5,73 @@ from fractions import Fraction
 import networkx as nx
 import matplotlib.pyplot as plt
 
+def get_jaccard_sim(str1, str2):
+    a = set(str1.split())
+    b = set(str2.split())
+    c = a.intersection(b)
+    return float(len(c)) / (len(a) + len(b) - len(c))
+
+def get_no_of_posts(no_of_posts,name,nameList):
+    nameAndCommentList = dict()
+    count =0
+    for i in name:
+        nameAndCommentList[i]=no_of_posts[count]
+        count=count+1
+    print(nameAndCommentList)
+    return nameAndCommentList
+
+def calculateSimilarity(name,nameList):
+    print(name)
+    print(nameList)
+    #create name and comment together
+    nameCommentCombined = []
+    ind = 0
+    for e in name:
+        nameCommentCombinedOne = []
+        nameCommentCombinedOne.append(e)
+        nameCommentCombinedOne.append(str(comment[ind]).replace('"', ''))
+        nameCommentCombined.append(nameCommentCombinedOne)
+        ind = ind + 1
+
+    index=0
+    similarityList = []
+    for x in nameCommentCombined:
+        One_similarityList=[]
+        Final_OneComment_Similarity_Scor=0
+        for e in range(0,index+1):
+            y=nameCommentCombined[e]
+            if not x[0] in y[0]:
+                similarityScore = get_jaccard_sim(x[1], y[1])
+                if Final_OneComment_Similarity_Scor<similarityScore:
+                    Final_OneComment_Similarity_Scor=similarityScore
+        One_similarityList.append(x[0])
+        One_similarityList.append(Final_OneComment_Similarity_Scor)
+        similarityList.append(One_similarityList)
+        index=index+1
+    #print(similarityList)
+
+    Final_Similarity_mark_List = dict()
+    for x in nameList:
+        count = 0
+        sum = 0
+        for y in similarityList:
+            One_Final_Similarity_mark_List =[]
+            if x in y[0]:
+                sum = sum + y[1]
+                count = count + 1
+        if not count==0:
+            Final_Similarity_mark_List[x]=sum/count
+        if count==0:
+            Final_Similarity_mark_List[x]=sum/1
+    print("Final Similarty Mark List")
+    print("---------------------------------------------------------------------------")
+    print(Final_Similarity_mark_List)
+    return Final_Similarity_mark_List
+
 #remove repeat value in list
-def removesamevalueInlist(list) :
+def removesamevalueInlist(name) :
+    list = name[:]
+
     index1 = 0
     for x in list:
         index = 0
@@ -189,7 +254,6 @@ def create_socialNetwork(name,nameCommentMention,nameList):
         "-------------------------------------------- Social network array --------------------------------------------")
     print(FinalsocialNetwork)
 
-
     # social network print
 
     with open('socialNetwork.csv', 'a', newline='') as csvFile:
@@ -269,7 +333,12 @@ def pageRank_Algo(FinalsocialNetwork):
     print("-------------------------------------------- page rank value --------------------------------------------")
     print("Final:\n", display_format(r, 3))
     print("sum", np.sum(r))
-    return r
+    Final_page_Rank_value = dict()
+    ind=0
+    for l in nameList:
+        Final_page_Rank_value[l]=r.item(ind)
+        ind=ind+1
+    return Final_page_Rank_value
 
 def pageRank_Score_print(nameList,r):
     # page rank marks in users
@@ -310,22 +379,46 @@ def Hits_algorithem(FinalsocialNetwork,nameList):
     for x in nameList:
         print(x ,":" , hubs.get(x))
     print("authorities Scores: ", authorities)
-    for x in nameList:
-        print(x, ":", authorities .get(x))
+    for y in nameList:
+        print(y, ":", authorities .get(y))
 
-#add data set
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Anxiety.csv")
-name1= data['name']
-comment=data['comment']
+    return hubs,authorities
 
-name=[]
-# remove "â€¦" characters in name field and convert to lower case in string and strip
+def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count):
 
-for x in name1:
+    allDataArray=[]
+    for oneName in nameList:
+        DataArray = []
+        DataArray.append(oneName)
+        DataArray.append(Page_Rank_Result.get(oneName))
+        DataArray.append(Final_hubs.get(oneName))
+        DataArray.append(Final_authorities.get(oneName))
+        DataArray.append(Similarity_Result.get(oneName))
+        DataArray.append(Final_Number_Of_post_Count.get(oneName))
+        allDataArray.append(DataArray)
+
+    with open('Final_FeatureSet.csv', 'a', newline='') as csvFile:
+        csvFile.write("Username,Page Rank score,Hub Score, Authority Score,Similarity Score,No of post \n")
+        writer = csv.writer(csvFile)
+        writer.writerows(allDataArray)
+    csvFile.close()
+
+
+# add data set
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/I’m sorry to keep posting but the fear is to much.csv")
+name_Without_Clear = data['name']
+comment = data['comment']
+no_of_posts = data['no_of_posts']
+
+name = []
+# remove "..." characters in name field and convert to lower case in string and strip
+
+for x in name_Without_Clear:
     name.append(str(x).replace('…', '').strip().lower())
-originalPoster=name[0]
-nameCommentMention = []
 
+originalPoster = name[0]
+
+nameCommentMention = []
 index = 0
 for x in name:
     oneNameCommentMention = []
@@ -334,18 +427,21 @@ for x in name:
     oneNameCommentMention.append('no')
     nameCommentMention.append(oneNameCommentMention)
     index += 1
-# print(nameCommentMention)
 
 
 nameList= removesamevalueInlist(name)
 
+Final_Number_Of_post_Count=get_no_of_posts(no_of_posts,name,nameList)
+
 FinalsocialNetwork=create_socialNetwork(name,nameCommentMention,nameList)
 
-#r=pageRank_Algo(FinalsocialNetwork)
+Page_Rank_Result=pageRank_Algo(FinalsocialNetwork)
 
-#pageRank_Score_print(nameList,r)
+Final_hubs,Final_authorities=Hits_algorithem(FinalsocialNetwork,nameList)
 
-Hits_algorithem(FinalsocialNetwork,nameList)
+Similarity_Result=calculateSimilarity(name,nameList)
+
+Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count)
 
 
 

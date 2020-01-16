@@ -23,7 +23,7 @@ r = np.transpose(r)
 
 previous_r = r
 count=0
-for i in range(1,10000):
+for i in range(1,100):
    r = Al * r
    print (r)
    if (previous_r==r).all():
