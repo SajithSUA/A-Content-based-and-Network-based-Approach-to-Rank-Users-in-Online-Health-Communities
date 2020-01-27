@@ -110,7 +110,7 @@ def create_socialNetwork(name,nameCommentMention,nameList):
         onenameAndMention.append(x[2])
         nameAndMention.append(onenameAndMention)
 
-    with open('userConnection.csv', 'a', newline='') as csvFile:
+    with open('datacsv/userConnection.csv', 'a', newline='') as csvFile:
         csvFile.write("Username,mention name\n")
         writer = csv.writer(csvFile)
         writer.writerows(nameAndMention)
@@ -137,7 +137,7 @@ def create_socialNetwork(name,nameCommentMention,nameList):
 
         indexOfnameAndMention += 1
 
-    with open('userConnection1.csv', 'a', newline='') as csvFile:
+    with open('datacsv/userConnection1.csv', 'a', newline='') as csvFile:
         csvFile.write("Username,mention name\n")
         writer = csv.writer(csvFile)
         writer.writerows(nameAndMention)
@@ -165,7 +165,7 @@ def create_socialNetwork(name,nameCommentMention,nameList):
                     i = i + 1
 
         indexOfnameAndMention += 1
-    with open('userConnection2.csv', 'a', newline='') as csvFile:
+    with open('datacsv/userConnection2.csv', 'a', newline='') as csvFile:
         csvFile.write("Username,mention name\n")
         writer = csv.writer(csvFile)
         writer.writerows(nameAndMention)
@@ -186,7 +186,7 @@ def create_socialNetwork(name,nameCommentMention,nameList):
                     nameAndMention.pop(indexOfnameAndMention)
                     nameAndMention.insert(indexOfnameAndMention, x)
         indexOfnameAndMention += 1
-    with open('userConnection3.csv', 'a', newline='') as csvFile:
+    with open('datacsv/userConnection3.csv', 'a', newline='') as csvFile:
         csvFile.write("Username,mention name\n")
         writer = csv.writer(csvFile)
         writer.writerows(nameAndMention)
@@ -203,7 +203,7 @@ def create_socialNetwork(name,nameCommentMention,nameList):
             nameAndMention.insert(indexOfnameAndMention, x)
         indexOfnameAndMention += 1
 
-    with open('userConnection4.csv', 'a', newline='') as csvFile:
+    with open('datacsv/userConnection4.csv', 'a', newline='') as csvFile:
         csvFile.write("Username,mention name\n")
         writer = csv.writer(csvFile)
         writer.writerows(nameAndMention)
@@ -256,7 +256,7 @@ def create_socialNetwork(name,nameCommentMention,nameList):
 
     # social network print
 
-    with open('socialNetwork.csv', 'a', newline='') as csvFile:
+    with open('datacsv/socialNetwork.csv', 'a', newline='') as csvFile:
         a = "name"
         for name in nameList:
             a = a + "," + name
@@ -352,7 +352,7 @@ def pageRank_Score_print(nameList,r):
         allArray.append(array1)
         count2 = count2 + 1
 
-    with open('PageRankScore.csv', 'a', newline='') as csvFile:
+    with open('datacsv/PageRankScore.csv', 'a', newline='') as csvFile:
         csvFile.write("Username,Page Rank score \n")
         writer = csv.writer(csvFile)
         writer.writerows(allArray)
@@ -368,7 +368,7 @@ def Hits_algorithem(FinalsocialNetwork,nameList):
                     G.add_edges_from([(x[0],nameList[index-1])])
             index=index+1
 
-    plt.figure(figsize=(10, 10))
+    plt.figure(figsize=(100, 100))
     nx.draw_networkx(G, with_labels=True)
 
     hubs, authorities = nx.hits(G, max_iter= 50000000, normalized=True)
@@ -397,15 +397,15 @@ def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,
         DataArray.append(Final_Number_Of_post_Count.get(oneName))
         allDataArray.append(DataArray)
 
-    with open('Final_FeatureSet.csv', 'a', newline='') as csvFile:
-        csvFile.write("Username,Page Rank score,Hub Score, Authority Score,Similarity Score,No of post \n")
+    with open('datacsv/Final_FeatureSet.csv', 'a', newline='') as csvFile:
+        csvFile.write("Username,Page_Rank,Hub,Authority,Similarity,No_of_post\n")
         writer = csv.writer(csvFile)
         writer.writerows(allDataArray)
     csvFile.close()
 
 
 # add data set
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/I’m sorry to keep posting but the fear is to much.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Interpreting Your Report.csv")
 name_Without_Clear = data['name']
 comment = data['comment']
 no_of_posts = data['no_of_posts']
