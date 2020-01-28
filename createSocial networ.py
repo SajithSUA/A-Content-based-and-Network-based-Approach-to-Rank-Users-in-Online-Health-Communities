@@ -230,6 +230,31 @@ def create_socialNetwork(name,nameCommentMention,nameList):
     #
     # print(FinalsocialNetwork)
 
+
+    #original poster ge comment wala kawawath mention wela nathan
+    index=0
+    for i in nameAndMention:
+        if i[1] == 'no' and i[0] == originalPoster and index !=0:
+            mentionName=[]
+            for y in range(index-1,-1,-1):
+                if nameAndMention[y][0]==originalPoster:
+                    break
+                elif originalPoster in nameAndMention[y][1]:
+                    mentionName.append(nameAndMention[y][0])
+            if len(mentionName)!=0:
+                i.pop(1)
+                i.insert(1, mentionName)
+                nameAndMention.pop(index)
+                nameAndMention.insert(index,i)
+        index=index+1
+
+    with open('datacsv/userConnection5.csv', 'a', newline='') as csvFile:
+        csvFile.write("Username,mention name\n")
+        writer = csv.writer(csvFile)
+        writer.writerows(nameAndMention)
+    csvFile.close()
+
+
     FinalsocialNetwork = []
     for oneName1 in nameList:
         oneFinalsocialNetwork = []
@@ -340,22 +365,11 @@ def pageRank_Algo(FinalsocialNetwork):
         ind=ind+1
     return Final_page_Rank_value
 
-def pageRank_Score_print(nameList,r):
-    # page rank marks in users
-    allArray = []
-
-    count2 = 0
-    for q in nameList:
-        array1 = []
-        array1.append(q)
-        array1.append(r.item(count2))
-        allArray.append(array1)
-        count2 = count2 + 1
-
+def pageRank_Score_print(r):
     with open('datacsv/PageRankScore.csv', 'a', newline='') as csvFile:
         csvFile.write("Username,Page Rank score \n")
         writer = csv.writer(csvFile)
-        writer.writerows(allArray)
+        writer.writerows(r)
     csvFile.close()
 
 def Hits_algorithem(FinalsocialNetwork,nameList):
@@ -404,10 +418,14 @@ def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,
     csvFile.close()
 
 
+
+
+
 # add data set
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Interpreting Your Report.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Test.csv")
 name_Without_Clear = data['name']
 comment = data['comment']
+post_id = data['id']
 no_of_posts = data['no_of_posts']
 
 name = []
@@ -425,23 +443,28 @@ for x in name:
     oneNameCommentMention.append(str(x))
     oneNameCommentMention.append(comment[index])
     oneNameCommentMention.append('no')
+    oneNameCommentMention.append('no')
     nameCommentMention.append(oneNameCommentMention)
     index += 1
 
 
+
+
+
+
 nameList= removesamevalueInlist(name)
 
-Final_Number_Of_post_Count=get_no_of_posts(no_of_posts,name,nameList)
+#Final_Number_Of_post_Count=get_no_of_posts(no_of_posts,name,nameList)
 
 FinalsocialNetwork=create_socialNetwork(name,nameCommentMention,nameList)
 
 Page_Rank_Result=pageRank_Algo(FinalsocialNetwork)
 
-Final_hubs,Final_authorities=Hits_algorithem(FinalsocialNetwork,nameList)
+#Final_hubs,Final_authorities=Hits_algorithem(FinalsocialNetwork,nameList)
 
-Similarity_Result=calculateSimilarity(name,nameList)
+#Similarity_Result=calculateSimilarity(name,nameList)
 
-Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count)
+#Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count)
 
 
 
