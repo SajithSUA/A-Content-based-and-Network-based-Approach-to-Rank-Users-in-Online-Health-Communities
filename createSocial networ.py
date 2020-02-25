@@ -422,7 +422,7 @@ def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,
 
 
 # add data set
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Test.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/merged csvs data.csv")
 name_Without_Clear = data['name']
 comment = data['comment']
 post_id = data['id']
@@ -454,17 +454,17 @@ for x in name:
 
 nameList= removesamevalueInlist(name)
 
-#Final_Number_Of_post_Count=get_no_of_posts(no_of_posts,name,nameList)
+Final_Number_Of_post_Count=get_no_of_posts(no_of_posts,name,nameList)
 
 FinalsocialNetwork=create_socialNetwork(name,nameCommentMention,nameList)
 
 Page_Rank_Result=pageRank_Algo(FinalsocialNetwork)
 
-#Final_hubs,Final_authorities=Hits_algorithem(FinalsocialNetwork,nameList)
+Final_hubs,Final_authorities=Hits_algorithem(FinalsocialNetwork,nameList)
 
-#Similarity_Result=calculateSimilarity(name,nameList)
+Similarity_Result=calculateSimilarity(name,nameList)
 
-#Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count)
+Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count)
 
 
 

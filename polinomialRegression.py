@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 import seaborn as sb
 from sklearn import metrics
@@ -10,31 +11,33 @@ datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score1.cs
 data_set = pd.read_csv(datafile)
 
 feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post','actual_NoOf_Post']]
-
+y=data_set[['score']]
 X = feature_cols.values
-y = data_set.iloc[:, 7].values
-print(y)
+y = data_set.iloc[:, 7]
 
-plt.figure(figsize=(15, 10))
-plt.tight_layout()
-sb.distplot(data_set['score'])
-# plt.show()
+pf=PolynomialFeatures(degree=2,include_bias=False)
+pf.fit(feature_cols)
+print(pf.get_feature_names())
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+Z_pf= pf.transform(feature_cols)
 
-regressor = LinearRegression()
-regressor.fit(X_train, y_train)
+print(feature_cols.shape)
+print(Z_pf.shape)
+
+X_train, X_test, y_train, y_test = train_test_split(Z_pf, y, test_size=0.2, random_state=0)
+
+pr=LinearRegression()
+pr.fit(X_train,y_train)
 
 # print the coefficients
-print('intercept: \n', regressor.intercept_)
-print('coefficient: \n', regressor.coef_)
+print('intercept: \n', pr.intercept_)
+print('coefficient: \n', pr.coef_)
 
 #coefficient for each feature
-coeff_df = pd.DataFrame(regressor.coef_, feature_cols.columns, columns=['Coefficient'])
+coeff_df = pd.DataFrame(pr.coef_, pf.get_feature_names(), columns=['Coefficient'])
 print(coeff_df)
 
-# compare actual vs. predicted rank
-y_pred = regressor.predict(X_test)
+y_pred = pr.predict(X_test)
 df = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
 compared_df = df.head(25)
 print(compared_df)
@@ -48,15 +51,6 @@ print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
 print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
 print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 
-print('Accuracy of multiple regression classifier on test set: {:.2f}'.format(regressor.score(X_test, y_test)))
+print('Accuracy of multiple regression classifier on test set: {:.2f}'.format(pr.score(X_test, y_test)))
 
 
-datafile1 = open('C:/Users/sajith/Desktop/normalize.csv', 'r',encoding="utf-8")
-data_set1 = pd.read_csv(datafile1)
-
-
-#add new data set and check scor
-# feature_cols1 = data_set1[['Page_Rank','Hub','Authority','Similarity','No_of_post']]
-# y_test1=data_set1[['Score']]
-# y_pred1 = regressor.predict(feature_cols1)
-# print(y_pred1)

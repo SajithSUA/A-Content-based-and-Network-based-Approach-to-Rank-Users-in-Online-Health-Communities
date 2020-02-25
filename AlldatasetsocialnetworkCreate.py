@@ -21,8 +21,6 @@ def get_no_of_posts(no_of_posts,name,nameList):
     return nameAndCommentList
 
 def calculateSimilarity(name,nameList):
-    print(name)
-    print(nameList)
     #create name and comment together
     nameCommentCombined = []
     ind = 0
@@ -345,7 +343,7 @@ def pageRank_Algo(FinalsocialNetwork):
 
     Ex[:] = my_dp
 
-    beta = 0.8
+    beta = .85
     Al = beta * Mat + ((1 - beta) * Ex)
     array = []
     for i in nameList:
@@ -356,7 +354,6 @@ def pageRank_Algo(FinalsocialNetwork):
     previous_r = r
     for i in range(1, 100):
         r = Al * r
-        # print (display_format(r,3))
         if (previous_r == r).all():
             break
         previous_r = r
@@ -392,8 +389,13 @@ def Hits_algorithem(FinalsocialNetwork,nameList):
 
     plt.figure(figsize=(100, 100))
     nx.draw_networkx(G, with_labels=True)
+    plt.show()
+
 
     hubs, authorities = nx.hits(G, max_iter= 50000000, normalized=True)
+# page rank value genarate in nx library
+    pr = nx.pagerank(G, alpha=0.85)
+
     # The in-built hits function returns two dictionaries keyed by nodes
     # containing hub scores and authority scores respectively.
 
@@ -404,9 +406,9 @@ def Hits_algorithem(FinalsocialNetwork,nameList):
     for y in nameList:
         print(y, ":", authorities .get(y))
 
-    return hubs,authorities
+    return hubs,authorities,pr
 
-def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count):
+def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post):
 
     allDataArray=[]
     for oneName in nameList:
@@ -417,20 +419,29 @@ def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,
         DataArray.append(Final_authorities.get(oneName))
         DataArray.append(Similarity_Result.get(oneName))
         DataArray.append(Final_Number_Of_post_Count.get(oneName))
+        DataArray.append(pr.get(oneName))
+        DataArray.append(actual_NoOf_Post.get(oneName))
         allDataArray.append(DataArray)
 
     with open('datacsv/Final_FeatureSet.csv', 'a', newline='') as csvFile:
-        csvFile.write("Username,Page_Rank,Hub,Authority,Similarity,No_of_post\n")
+        csvFile.write("Username,Page_Rank,Hub,Authority,Similarity,No_of_post,pr,actual_NoOf_Post\n")
         writer = csv.writer(csvFile)
         writer.writerows(allDataArray)
     csvFile.close()
 
-
-
+def actualNumberOfPost(name,nameList):
+    nameAndNumberOfPost= dict()
+    for oneName in nameList:
+        count=0
+        for x in name:
+            if oneName in x:
+                count=count+1
+        nameAndNumberOfPost[oneName]=count
+    return nameAndNumberOfPost
 
 
 # add data set
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Test.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/merged csvs data.csv")
 name_Without_Clear = data['name']
 comment = data['comment']
 post_id = data['id']
@@ -465,11 +476,14 @@ FinalsocialNetwork=create_socialNetwork(name,nameCommentMention,nameList)
 
 Page_Rank_Result=pageRank_Algo(FinalsocialNetwork)
 
-Final_hubs,Final_authorities=Hits_algorithem(FinalsocialNetwork,nameList)
+Final_hubs,Final_authorities,pr=Hits_algorithem(FinalsocialNetwork,nameList)
 
 Similarity_Result=calculateSimilarity(name,nameList)
 
-Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count)
+actual_NoOf_Post=actualNumberOfPost(name,nameList)
+
+Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post)
+
 
 
 
