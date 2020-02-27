@@ -7,10 +7,10 @@ from sklearn.linear_model import LinearRegression
 import seaborn as sb
 from sklearn import metrics
 
-datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score1.csv', 'r',encoding="utf-8")
+datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score2.csv', 'r',encoding="utf-8")
 data_set = pd.read_csv(datafile)
 
-feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post','actual_NoOf_Post']]
+feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post']]
 y=data_set[['score']]
 X = feature_cols.values
 y = data_set.iloc[:, 7]
@@ -53,4 +53,12 @@ print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_p
 
 print('Accuracy of multiple regression classifier on test set: {:.2f}'.format(pr.score(X_test, y_test)))
 
+plt.figure(figsize=(10,15))
+sb.distplot(y_test,hist=False,color="r",label="Actual value")
+sb.distplot(y_pred,hist=False,color="b",label="preddicted value")
 
+plt.title('actual vs predicted valu')
+plt.ylabel('score')
+plt.xlabel('user')
+
+plt.show()
