@@ -1,22 +1,2 @@
-from tkinter import *
-from tkinter import messagebox
-
-
-window = Tk()
-window.configure(background="#9980FA")
-window.title("Stack Overflow User Expertise Detector")
-window.geometry('350x400')
-lbl = Label(window, text="Predict Expertise", wraplength=300, background="#0652DD")
-lbl.pack(fill=BOTH, expand=1)
-#btn2 = Button(window, text="Get Features", command=get_features, background="#1289A7")
-#btn2.pack(fill=BOTH, padx=40, pady=20)
-#btn1 = Button(window, text="Train", command=train, background="#1289A7")
-#btn1.pack(fill=BOTH, padx=40, pady=20)
-
-lb2 = Label(window, text="Enter Sample number from 20", wraplength=300, background="#0652DD")
-lb2.pack(fill=BOTH, padx=80, pady=0)
-entry = Entry(window,bg='white')
-entry.pack(fill=BOTH, padx=150, pady=20)
-btn = Button(window, text="Predict Technical Level", background="#1289A7")
-btn.pack(fill=BOTH, padx=40, pady=20)
-window.mainloop()
+str = "Beesie Here's the thing. Officially there is no such thing as a Breast Surgeon. Breast surgeons are General Surgeons who specialize in breast surgery and ideally exclusively perform breast surgery and nothing else. Some doctors use the title Breast Surgeon but it means little since there are no specific qualifications that designate a surgeon as being a Breast Surgeon. I'd guess (or hope) that most surgeons who use the title Breast Surgeon are honest and have in fact trained in breast surgery and focus much of their practice on breast surgery. But a surgeon who does only 5% of his surgeries on breasts could still call himself a Breast Surgeon. On the other hand my surgeon who exclusively does breast cancer surgery and is head of the Breast Surgery department at a leading cancer hospital uses the title General Surgeon. What you want to look for is training not title. Through his/her medical education did this surgeon specialize in breast surgery perhaps having a fellowship in breast surgery? You want to look at focus. What areas does the surgeon list that he/she works on? Just breast surgery or only two or three areas or a long list of areas? And you want to look at reviews. Are they all for breast surgery or are most for other types of surgery? I'm sure you can find true breast specialists in Vegas but it might take a bit of digging to figure out who's who. I'd say it's worth looking and worth cancelling/delaying your Saturday appointment for the biopsy. You can always reschedule later if it becomes apparent that a biopsy is advisable and that this doctor is a good choice. At this point there is nothing that sounds urgent about your situation nothing that says you should go ahead with the current biopsy plan despite your questions and concerns."
+print(len(str))

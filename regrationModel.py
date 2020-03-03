@@ -6,10 +6,10 @@ from sklearn.linear_model import LinearRegression
 import seaborn as sb
 from sklearn import metrics
 
-datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score2.csv', 'r',encoding="utf-8")
+datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score3.csv', 'r',encoding="utf-8")
 data_set = pd.read_csv(datafile)
 
-feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post',]]
+feature_cols = data_set[['Page_Rank','Hub','Authority','Similarity','No_of_post','length_in_comment']]
 
 X = feature_cols.values
 y = data_set.iloc[:, 7].values

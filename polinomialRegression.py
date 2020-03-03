@@ -7,15 +7,15 @@ from sklearn.linear_model import LinearRegression
 import seaborn as sb
 from sklearn import metrics
 
-datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score2.csv', 'r',encoding="utf-8")
+datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score3.csv', 'r',encoding="utf-8")
 data_set = pd.read_csv(datafile)
 
-feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post']]
+feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post','length_in_comment']]
 y=data_set[['score']]
 X = feature_cols.values
 y = data_set.iloc[:, 7]
 
-pf=PolynomialFeatures(degree=2,include_bias=False)
+pf=PolynomialFeatures(degree=2,include_bias=True)
 pf.fit(feature_cols)
 print(pf.get_feature_names())
 
@@ -51,7 +51,7 @@ print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
 print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
 print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 
-print('Accuracy of multiple regression classifier on test set: {:.2f}'.format(pr.score(X_test, y_test)))
+#print('Accuracy of multiple regression classifier on test set: {:.2f}'.format(pr.score(X_test, y_test)))
 
 plt.figure(figsize=(10,15))
 sb.distplot(y_test,hist=False,color="r",label="Actual value")

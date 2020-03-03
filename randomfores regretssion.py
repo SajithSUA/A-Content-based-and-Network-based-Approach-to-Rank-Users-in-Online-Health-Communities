@@ -7,10 +7,10 @@ from sklearn.ensemble import RandomForestRegressor
 import seaborn as sb
 from sklearn import metrics
 
-datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score2.csv', 'r',encoding="utf-8")
+datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score3.csv', 'r',encoding="utf-8")
 data_set = pd.read_csv(datafile)
 
-feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post','actual_NoOf_Post']]
+feature_cols = data_set[['Page_Rank','Hub','Authority','Similarity','No_of_post','length_in_comment']]
 
 X = feature_cols.values
 y = data_set.iloc[:, 7].values
@@ -23,7 +23,7 @@ sb.distplot(data_set['score'])
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
-regressor = RandomForestRegressor()
+regressor = RandomForestRegressor(n_estimators=100)
 regressor.fit(X_train, y_train)
 
 # compare actual vs. predicted rank
@@ -41,7 +41,17 @@ print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
 print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
 print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 
-#print('Accuracy of random forest regression classifier on test set: {:.2f}'.format(regressor.score(X_test, y_test)))
+
+#check acccurency
+errors = abs(y_pred - y_test)
+print('Metrics for Random Forest Trained on Original Data')
+print('Average absolute error:', round(np.mean(errors), 2), 'degrees.')
+# Calculate mean absolute percentage error (MAPE)
+mape = 100 * (errors / y_test)
+# Calculate and display accuracy
+accuracy = 100 - np.mean(mape)
+print('Accuracy:', round(accuracy, 2), '%.')
+
 
 
 datafile1 = open('C:/Users/sajith/Desktop/normalize.csv', 'r',encoding="utf-8")

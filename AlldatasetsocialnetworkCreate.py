@@ -408,7 +408,7 @@ def Hits_algorithem(FinalsocialNetwork,nameList):
 
     return hubs,authorities,pr
 
-def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post):
+def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment):
 
     allDataArray=[]
     for oneName in nameList:
@@ -419,12 +419,13 @@ def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,
         DataArray.append(Final_authorities.get(oneName))
         DataArray.append(Similarity_Result.get(oneName))
         DataArray.append(Final_Number_Of_post_Count.get(oneName))
-        DataArray.append(pr.get(oneName))
-        DataArray.append(actual_NoOf_Post.get(oneName))
+       #DataArray.append(pr.get(oneName))
+       #DataArray.append(actual_NoOf_Post.get(oneName))
+        DataArray.append(length_in_comment.get(oneName))
         allDataArray.append(DataArray)
 
     with open('datacsv/Final_FeatureSet.csv', 'a', newline='') as csvFile:
-        csvFile.write("Username,Page_Rank,Hub,Authority,Similarity,No_of_post,pr,actual_NoOf_Post\n")
+        csvFile.write("Username,Page_Rank,Hub,Authority,Similarity,No_of_post,length_in_comment\n")
         writer = csv.writer(csvFile)
         writer.writerows(allDataArray)
     csvFile.close()
@@ -438,6 +439,28 @@ def actualNumberOfPost(name,nameList):
                 count=count+1
         nameAndNumberOfPost[oneName]=count
     return nameAndNumberOfPost
+
+def get_average_coment_Length(nameCommentMention,nameList):
+    length_in_comment=[]
+    for x in nameCommentMention:
+        one_length_in_comment=[]
+        one_length_in_comment.append(x[0])
+        one_length_in_comment.append(len(x[1].replace(' ', '')))
+        length_in_comment.append(one_length_in_comment)
+    average_length_in_comment = dict()
+    for y in nameList:
+        count=0
+        sum=0
+        for i in length_in_comment:
+            if y in i[0]:
+                sum=sum+i[1]
+                count=count+1
+        if not count==0:
+            average_length_in_comment[y]=sum/count
+        else:
+            average_length_in_comment[y] = 0
+    return average_length_in_comment
+
 
 
 # add data set
@@ -482,7 +505,9 @@ Similarity_Result=calculateSimilarity(name,nameList)
 
 actual_NoOf_Post=actualNumberOfPost(name,nameList)
 
-Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post)
+length_in_comment=get_average_coment_Length(nameCommentMention,nameList)
+
+Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment)
 
 
 
