@@ -6,13 +6,13 @@ from sklearn.linear_model import LinearRegression
 import seaborn as sb
 from sklearn import metrics
 
-datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score3.csv', 'r',encoding="utf-8")
+datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score4.csv', 'r',encoding="utf-8")
 data_set = pd.read_csv(datafile)
 
-feature_cols = data_set[['Page_Rank','Hub','Authority','Similarity','No_of_post','length_in_comment']]
+feature_cols = data_set[['Page_Rank','Hub','Authority','Similarity','No_of_post','length_in_comment','updatness']]
 
 X = feature_cols.values
-y = data_set.iloc[:, 7].values
+y = data_set.iloc[:, 8].values
 print(y)
 
 plt.figure(figsize=(15, 10))
@@ -51,8 +51,6 @@ print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_p
 print('Accuracy of multiple regression classifier on test set: {:.2f}'.format(regressor.score(X_test, y_test)))
 
 
-datafile1 = open('C:/Users/sajith/Desktop/normalize.csv', 'r',encoding="utf-8")
-data_set1 = pd.read_csv(datafile1)
 
 #dreaw chart
 plt.figure(figsize=(10,15))
@@ -64,8 +62,12 @@ plt.ylabel('score')
 plt.xlabel('user')
 
 plt.show()
-#add new data set and check scor
-# feature_cols1 = data_set1[['Page_Rank','Hub','Authority','Similarity','No_of_post']]
-# y_test1=data_set1[['Score']]
+
+
+# datafile1 = open('C:/Users/sajith/PycharmProjects/fyp/datacsv/normalize.csv', 'r',encoding="utf-8")
+# data_set1 = pd.read_csv(datafile1)
+#
+# #add new data set and check scor
+# feature_cols1 = data_set1[['Page_Rank','Hub','Authority','Similarity','No_of_post','length_in_comment']]
 # y_pred1 = regressor.predict(feature_cols1)
 # print(y_pred1)

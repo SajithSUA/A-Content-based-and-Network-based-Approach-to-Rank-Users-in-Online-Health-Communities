@@ -4,6 +4,8 @@ import numpy as np
 from fractions import Fraction
 import networkx as nx
 import matplotlib.pyplot as plt
+import os
+import datetime
 
 def get_jaccard_sim(str1, str2):
     a = set(str1.split())
@@ -389,7 +391,7 @@ def Hits_algorithem(FinalsocialNetwork,nameList):
 
     plt.figure(figsize=(100, 100))
     nx.draw_networkx(G, with_labels=True)
-    plt.show()
+    #plt.show()
 
 
     hubs, authorities = nx.hits(G, max_iter= 50000000, normalized=True)
@@ -408,7 +410,7 @@ def Hits_algorithem(FinalsocialNetwork,nameList):
 
     return hubs,authorities,pr
 
-def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment):
+def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment,averge_updatness):
 
     allDataArray=[]
     for oneName in nameList:
@@ -422,10 +424,11 @@ def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,
        #DataArray.append(pr.get(oneName))
        #DataArray.append(actual_NoOf_Post.get(oneName))
         DataArray.append(length_in_comment.get(oneName))
+        DataArray.append(averge_updatness.get(oneName))
         allDataArray.append(DataArray)
 
     with open('datacsv/Final_FeatureSet.csv', 'a', newline='') as csvFile:
-        csvFile.write("Username,Page_Rank,Hub,Authority,Similarity,No_of_post,length_in_comment\n")
+        csvFile.write("Username,Page_Rank,Hub,Authority,Similarity,No_of_post,length_in_comment,updatness\n")
         writer = csv.writer(csvFile)
         writer.writerows(allDataArray)
     csvFile.close()
@@ -461,6 +464,41 @@ def get_average_coment_Length(nameCommentMention,nameList):
             average_length_in_comment[y] = 0
     return average_length_in_comment
 
+def get_average_updatness():
+    data = pd.read_csv("C:/Users/sajith/PycharmProjects/fyp/datacsv/nuwanoutput/Final_result.csv")
+    name_Without_Clear = data['Name']
+    updatness = data['Predicted']
+    name=[]
+    for x in name_Without_Clear:
+        name.append(str(x).replace('…', '').strip().lower())
+    name_and_Updatness=[]
+    index=0
+    for i in name:
+        oneName_and_updatness=[]
+        oneName_and_updatness.append(i)
+        oneName_and_updatness.append(updatness[index])
+        name_and_Updatness.append(oneName_and_updatness)
+        index=index+1
+
+    average_updatnes= dict()
+    for y in nameList:
+        count=0
+        sum=0
+        for i in name_and_Updatness:
+            if y in i[0]:
+                sum=sum+i[1]
+                count=count+1
+        if not count==0:
+            average_updatnes[y]=sum/count
+        else:
+            average_updatnes[y] = 0
+    return average_updatnes
+
+def remove_existing_CSV():
+    files="C:/Users/sajith/PycharmProjects/fyp/datacsv"
+    for file1 in os.listdir(files):
+        if file1.endswith('.csv'):
+            os.remove(files + '/' + file1)
 
 
 # add data set
@@ -471,6 +509,7 @@ post_id = data['id']
 no_of_posts = data['no_of_posts']
 
 name = []
+
 # remove "..." characters in name field and convert to lower case in string and strip
 
 for x in name_Without_Clear:
@@ -486,32 +525,58 @@ for x in name:
     nameCommentMention.append(oneNameCommentMention)
     index += 1
 
-
-
-
-
-
 nameList= removesamevalueInlist(name)
+
+
+remove_existing_CSV()
+
+a = datetime.datetime.now()
 
 Final_Number_Of_post_Count=get_no_of_posts(no_of_posts,name,nameList)
 
+b = datetime.datetime.now()
+
 FinalsocialNetwork=create_socialNetwork(name,nameCommentMention,nameList)
+
+c = datetime.datetime.now()
 
 Page_Rank_Result=pageRank_Algo(FinalsocialNetwork)
 
+d = datetime.datetime.now()
+
 Final_hubs,Final_authorities,pr=Hits_algorithem(FinalsocialNetwork,nameList)
+
+e = datetime.datetime.now()
 
 Similarity_Result=calculateSimilarity(name,nameList)
 
+f = datetime.datetime.now()
+
 actual_NoOf_Post=actualNumberOfPost(name,nameList)
+
+g = datetime.datetime.now()
 
 length_in_comment=get_average_coment_Length(nameCommentMention,nameList)
 
-Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment)
+h = datetime.datetime.now()
+
+averge_updatness=get_average_updatness()
+
+i = datetime.datetime.now()
+
+Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment,averge_updatness)
+
+j = datetime.datetime.now()
 
 
-
-
-
+print("print",j-i)
+print("updatness",i-h)
+print("length",h-g)
+print("actual no post", g-f)
+print("similarity",f-e)
+print("hits",e-d)
+print("page rank",d-c)
+print("socia net",c-b)
+print("no of post",b-a)
 
 
