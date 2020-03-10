@@ -8,8 +8,13 @@ import os
 import datetime
 import Normalization as Normalization
 import Final_regression_Model_Using_test as Regression_model
+import Feature_extrection as FeatureExtraction
+import ranking_model as rankModel
 
 dataset="C:/Users/sajith/Desktop/project/data set/merged csvs data.csv"
+datSetUpdatness="C:/Users/sajith/PycharmProjects/fyp/CSV_files/Final_result.csv"
+datSetSupport="C:/Users/sajith/PycharmProjects/fyp/datacsv/piyumiOutput/final_support_score_by_user.csv"
+
 
 def get_jaccard_sim(str1, str2):
     a = set(str1.split())
@@ -414,7 +419,7 @@ def Hits_algorithem(FinalsocialNetwork,nameList):
 
     return hubs,authorities,pr
 
-def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment,averge_updatness):
+def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment,averge_updatness,FinalInforScore,FinalEmoScore):
 
     allDataArray=[]
     for oneName in nameList:
@@ -429,10 +434,12 @@ def Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,
        #DataArray.append(actual_NoOf_Post.get(oneName))
         DataArray.append(length_in_comment.get(oneName))
         DataArray.append(averge_updatness.get(oneName))
+        DataArray.append(FinalInforScore.get(oneName))
+        DataArray.append(FinalEmoScore.get(oneName))
         allDataArray.append(DataArray)
 
     with open('datacsv/Final_FeatureSet.csv', 'a', newline='') as csvFile:
-        csvFile.write("Username,Page_Rank,Hub,Authority,Similarity,No_of_post,length_in_comment,updatness\n")
+        csvFile.write("Username,Page_Rank,Hub,Authority,Similarity,No_of_post,length_in_comment,updatness,Info_Score,Emo_Score\n")
         writer = csv.writer(csvFile)
         writer.writerows(allDataArray)
     csvFile.close()
@@ -469,7 +476,7 @@ def get_average_coment_Length(nameCommentMention,nameList):
     return average_length_in_comment
 
 def get_average_updatness():
-    data = pd.read_csv("C:/Users/sajith/PycharmProjects/fyp/datacsv/nuwanoutput/Final_result.csv")
+    data = pd.read_csv(datSetUpdatness)
     name_Without_Clear = data['Name']
     updatness = data['Predicted']
     name=[]
@@ -498,11 +505,37 @@ def get_average_updatness():
             average_updatnes[y] = 0
     return average_updatnes
 
+def apeend_Support_level(nameList):
+    data = pd.read_csv(datSetSupport)
+    name=data['name']
+    Info_Score= data['Mean_Info_score']
+    Emo_score= data['Mean_Emo_score']
+    FinalInforScore=dict()
+    FinalEmoScore = dict()
+
+    for i in nameList:
+        ind = 0
+        for x in name:
+            if i in x:
+                break
+
+            ind=ind+1
+
+        FinalInforScore[i]=Info_Score[ind]
+        FinalEmoScore[i]=Emo_score[ind]
+
+    return FinalInforScore,FinalEmoScore
+
+
 def remove_existing_CSV():
     files="C:/Users/sajith/PycharmProjects/fyp/datacsv"
     for file1 in os.listdir(files):
         if file1.endswith('.csv'):
             os.remove(files + '/' + file1)
+    files2 = "C:/Users/sajith/PycharmProjects/fyp/CSV_files"
+    for file3 in os.listdir(files2):
+        if file3.endswith('.csv'):
+            os.remove(files2 + '/' + file3)
 
 
 # add data set
@@ -529,59 +562,51 @@ for x in name:
     nameCommentMention.append(oneNameCommentMention)
     index += 1
 
+
+
 nameList= removesamevalueInlist(name)
+
 remove_existing_CSV()
-a = datetime.datetime.now()
+
+#feature extraction method call
 
 Final_Number_Of_post_Count=get_no_of_posts(no_of_posts,name,nameList)
 
-b = datetime.datetime.now()
-
 FinalsocialNetwork=create_socialNetwork(name,nameCommentMention,nameList)
-
-c = datetime.datetime.now()
 
 Page_Rank_Result=pageRank_Algo(FinalsocialNetwork)
 
-d = datetime.datetime.now()
-
 Final_hubs,Final_authorities,pr=Hits_algorithem(FinalsocialNetwork,nameList)
-
-e = datetime.datetime.now()
 
 Similarity_Result=calculateSimilarity(name,nameList)
 
-f = datetime.datetime.now()
-
 actual_NoOf_Post=actualNumberOfPost(name,nameList)
-
-g = datetime.datetime.now()
 
 length_in_comment=get_average_coment_Length(nameCommentMention,nameList)
 
-h = datetime.datetime.now()
+#Add Nuwan method
+FeatureExtraction.Uptodatedness_score()
 
 averge_updatness=get_average_updatness()
 
-i = datetime.datetime.now()
+FinalInforScore,FinalEmoScore=apeend_Support_level(nameList)
 
-Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment,averge_updatness)
 
-j = datetime.datetime.now()
+Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment,averge_updatness,FinalInforScore,FinalEmoScore)
+
+#normalize methoda call
 
 Normalization.normalization()
 
+#regression call
+
 Regression_model.getScore_Using_Regression_Model()
 
+#rankingCall
 
-print("print",j-i)
-print("updatness",i-h)
-print("length",h-g)
-print("actual no post", g-f)
-print("similarity",f-e)
-print("hits",e-d)
-print("page rank",d-c)
-print("socia net",c-b)
-print("no of post",b-a)
+rankModel.rank_scores()
+
+
+
 
 
