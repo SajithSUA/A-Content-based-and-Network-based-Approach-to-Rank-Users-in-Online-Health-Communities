@@ -16,21 +16,20 @@ def rank_scores():
     print(answerDetails)
 
     # convert score array into dataframe
-    score_df = pd.DataFrame(score['Predicted_RFR'], columns=['Predicted_RFR'])
+    score_df = pd.DataFrame(score['Predicted_MLR'], columns=['Predicted_MLR'])
     print(score_df)
     # create rank column
-    score_df['Predicted Rank'] = score_df['Predicted_RFR'].rank(ascending=False)
+    score_df['Predicted Rank'] = score_df['Predicted_MLR'].rank(ascending=False)
 
     # merging 2 dataframes to display
     score_df.reset_index(drop=True, inplace=True)
     answerDetails.reset_index(drop=True, inplace=True)
     resultsList = pd.concat([score_df, answerDetails], axis=1)
     print('===============Random Forest Regression Model-Predicted Rank List==============')
-    User_category=categorizeUsers(score['Predicted_RFR'])
+    User_category=categorizeUsers(score['Predicted_MLR'])
     resultsList['User_category']=User_category
     print(resultsList)
     resultsList.to_csv(r'C:/Users/sajith/PycharmProjects/fyp/datacsv/Final_result_withRank.csv',mode='a',index=False)
 
-rank_scores()
 
 

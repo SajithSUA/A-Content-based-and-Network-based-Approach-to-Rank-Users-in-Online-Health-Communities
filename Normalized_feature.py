@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn import preprocessing
 def Normalized_features():
-    with open(r"E:\FYP\CSV_files\comment_updateness_original.csv","r",encoding="utf8") as usersFile:
+    with open(r"C:/Users/sajith/PycharmProjects/fyp/CSV_files/comment_updateness_original.csv","r",encoding="utf8") as usersFile:
         #usersFile = open(r"G:\FYP\ModelDataSet.csv","r",encoding="utf8")
         users = pd.read_csv(usersFile,usecols=['Date_feature', 'trending_feature', 'LDA_feature', 'name'])
 

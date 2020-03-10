@@ -10,7 +10,7 @@ from sklearn import metrics
 from sklearn.preprocessing import PolynomialFeatures
 import pickle
 
-dataset='C:/Users/sajith/Desktop/project/test score genaration/score4.csv'
+dataset='C:/Users/sajith/Desktop/project/test score genaration/score7.csv'
 
 def remove_existing_SAV():
     files="C:/Users/sajith/PycharmProjects/fyp"
@@ -54,11 +54,11 @@ def multiple_Leniear_Regression(X_train, X_test, y_train, y_test,feature_cols):
     compared_df = df.head(25)
     print(compared_df)
     accurency_metrics(y_test, y_pred_MLR, "Multiple linear")
-    create_accurency(y_test, y_pred_MLR, "Multiple linear")
+    #create_accurency(y_test, y_pred_MLR, "Multiple linear")
     return y_pred_MLR
 
 def Random_forest_regression(X_train, X_test, y_train, y_test):
-    regressor = RandomForestRegressor(n_estimators=450)
+    regressor = RandomForestRegressor(n_estimators=500)
     regressor.fit(X_train, y_train)
 
     # save model
@@ -72,7 +72,7 @@ def Random_forest_regression(X_train, X_test, y_train, y_test):
     compared_df = df.head(25)
     print(compared_df)
     accurency_metrics(y_test, y_pred_RFLR, "Random Forest")
-    create_accurency(y_test, y_pred_RFLR, "Random Forest")
+    #create_accurency(y_test, y_pred_RFLR, "Random Forest")
     return y_pred_RFLR
 
 def polynomial_regression(feature_cols,y):
@@ -101,7 +101,7 @@ def polynomial_regression(feature_cols,y):
     compared_df = df.head(25)
     print(compared_df)
     accurency_metrics(y_test, y_pred_PR, "Plynomial")
-    create_accurency(y_test, y_pred_PR, "Plynomial")
+    #create_accurency(y_test, y_pred_PR, "Plynomial")
     return y_pred_PR
 
 
@@ -121,11 +121,12 @@ def draw_chart(y_test,y_pred_MLR,y_pred_RFLR,y_pred_PR):
 def main():
     datafile = open(dataset, 'r', encoding="utf-8")
     data_set = pd.read_csv(datafile)
+    print(data_set)
 
-    feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post','length_in_comment','updatness']]
+    feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post','length_in_comment','updatness','Info_Score','Emo_Score']]
 
     X = feature_cols.values
-    y = data_set.iloc[:, 8].values
+    y = data_set.iloc[:, 11].values
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 

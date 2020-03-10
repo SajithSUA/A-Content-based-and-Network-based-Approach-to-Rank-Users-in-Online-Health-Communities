@@ -11,40 +11,22 @@ import pandas as pd
 import Normalized_feature
 import Linnear_Regression
 
+import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 
-stopwords_english = stopwords.words('english')
 
 from nltk.stem import PorterStemmer
 
-stemmer = PorterStemmer()
 
 from nltk.stem import WordNetLemmatizer
 
-lemmatizer = WordNetLemmatizer()
 
 from nltk.tokenize import TweetTokenizer
 
 from nltk.corpus import wordnet
 
-# Happy Emoticons
-emoticons_happy = set([
-    ':-)', ':)', ';)', ':o)', ':]', ':3', ':c)', ':>', '=]', '8)', '=)', ':}',
-    ':^)', ':-D', ':D', '8-D', '8D', 'x-D', 'xD', 'X-D', 'XD', '=-D', '=D',
-    '=-3', '=3', ':-))', ":'-)", ":')", ':*', ':^*', '>:P', ':-P', ':P', 'X-P',
-    'x-p', 'xp', 'XP', ':-p', ':p', '=p', ':-b', ':b', '>:)', '>;)', '>:-)',
-    '<3'
-])
 
-# Sad Emoticons
-emoticons_sad = set([
-    ':L', ':-/', '>:/', ':S', '>:[', ':@', ':-(', ':[', ':-||', '=L', ':<',
-    ':-[', ':-<', '=\\', '=/', '>:(', ':(', '>.<', ":'-(", ":'(", ':\\', ':-c',
-    ':c', ':{', '>:\\', ';('
-])
-
-# all emoticons (happy + sad)
-emoticons = emoticons_happy.union(emoticons_sad)
 
 
 def clean_comments(comment):
@@ -76,6 +58,26 @@ def tokenize_comments(clean_comment):
     return tweet_tokens
 
 def lemmatize_tokens(comment_tokens):
+    lemmatizer = WordNetLemmatizer()
+    stemmer = PorterStemmer()
+    # Happy Emoticons
+    emoticons_happy = set([
+        ':-)', ':)', ';)', ':o)', ':]', ':3', ':c)', ':>', '=]', '8)', '=)', ':}',
+        ':^)', ':-D', ':D', '8-D', '8D', 'x-D', 'xD', 'X-D', 'XD', '=-D', '=D',
+        '=-3', '=3', ':-))', ":'-)", ":')", ':*', ':^*', '>:P', ':-P', ':P', 'X-P',
+        'x-p', 'xp', 'XP', ':-p', ':p', '=p', ':-b', ':b', '>:)', '>;)', '>:-)',
+        '<3'
+    ])
+
+    # Sad Emoticons
+    emoticons_sad = set([
+        ':L', ':-/', '>:/', ':S', '>:[', ':@', ':-(', ':[', ':-||', '=L', ':<',
+        ':-[', ':-<', '=\\', '=/', '>:(', ':(', '>.<', ":'-(", ":'(", ':\\', ':-c',
+        ':c', ':{', '>:\\', ';('
+    ])
+    stopwords_english = stopwords.words('english')
+    # all emoticons (happy + sad)
+    emoticons = emoticons_happy.union(emoticons_sad)
     comments_clean = []
     for word in comment_tokens:
         if (word not in stopwords_english and  # remove stopwords
@@ -169,9 +171,9 @@ def All_Trending_Terms():
         for l in syn.lemmas():
             Trending_Terms.append(l.name())
     return Trending_Terms
-
+#main function
 def Uptodatedness_score():
-    with open(r"E:\FYP\Data_Source\merged_csvs_data.csv","r",encoding="utf8") as readCSV:
+    with open(r"C:/Users/sajith/Desktop/project/data set/merged_csvs_Ndata.csv","r",encoding="utf8") as readCSV:
         cu = open(r"CSV_files\comment_updateness_original.csv","w+",encoding="utf-8")
         #test = open(r"test.txt", "w+", encoding="utf-8")
         cu.write("comment_id,name,Date_feature,trending_feature,LDA_feature,Updateness\n")
@@ -192,3 +194,4 @@ def Uptodatedness_score():
 
     Normalized_feature.Normalized_features()
     Linnear_Regression.Predict_Score()
+

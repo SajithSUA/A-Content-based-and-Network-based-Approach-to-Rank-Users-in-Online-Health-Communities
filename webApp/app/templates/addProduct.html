@@ -48,11 +48,6 @@
 				</div>
 
                 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Price">
-					<span class="label-input100">Authority score</span>
-					<p class="input100" id="a3">
-				</div>
-
-                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Price">
 					<span class="label-input100">Hub score</span>
 					<p class="input100" id="a12">
 				</div>
@@ -88,12 +83,12 @@
 				</div>
 
                 <div class="wrap-input100 validate-input bg1" data-validate="Please Type Product Name">
-					<span class="label-input100">User Rank Score</span>
+					<span class="label-input100">User Rank</span>
 					<p class="input100" id="a10">
 				</div>
 
                 <div class="wrap-input100 validate-input bg1" data-validate="Please Type Product Name">
-					<span class="label-input100">User Rank</span>
+					<span class="label-input100">User Category</span>
 					<p class="input100" id="a11">
 				</div>
 
@@ -119,16 +114,15 @@ console.log("sajith")
 console.log(Mydata)
 document.getElementById("a1").innerHTML = Mydata.name
 document.getElementById("a2").innerHTML = Mydata.pageRank
-document.getElementById("a3").innerHTML = Mydata.Autho
 document.getElementById("a12").innerHTML = Mydata.Hub
 document.getElementById("a4").innerHTML = Mydata.NoOFPost
 document.getElementById("a5").innerHTML = Mydata.length
 document.getElementById("a6").innerHTML = Mydata.Similarity
 document.getElementById("a7").innerHTML = Mydata.updatness
-document.getElementById("a8").innerHTML = "invalid"
-document.getElementById("a9").innerHTML = "invalid"
-document.getElementById("a10").innerHTML = "invalid"
-document.getElementById("a11").innerHTML = "invalid"
+document.getElementById("a8").innerHTML = Mydata.Info_Score
+document.getElementById("a9").innerHTML = Mydata.Emo_Score
+document.getElementById("a10").innerHTML = Mydata.userRank
+document.getElementById("a11").innerHTML = Mydata.userCategory
 }
 </script>
 

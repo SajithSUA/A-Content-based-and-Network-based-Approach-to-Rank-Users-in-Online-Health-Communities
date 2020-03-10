@@ -8,7 +8,7 @@ from sklearn import metrics
 import pickle
 
 def Model_Build():
-    datafile = open(r"G:\FYP\feature_set\Normalized_features_model.csv", "r",encoding="utf-8")
+    datafile = open(r"C:/Users/sajith/Desktop/project/data set/Normalized_features_model.csv", "r",encoding="utf-8")
     data_set = pd.read_csv(datafile)
 
     feature_cols = data_set[['Datefeature','trendingfeature','LDAfeature']]
@@ -58,7 +58,7 @@ def Model_Build():
 
 
 def Predict_Score():
-    datafile_original = open(r"E:\FYP\CSV_files\Normalized_features_model_original.csv", "r", encoding="utf-8")
+    datafile_original = open(r"C:/Users/sajith/PycharmProjects/fyp/CSV_files/Normalized_features_model_original.csv", "r", encoding="utf-8")
     data_set = pd.read_csv(datafile_original)
 
     feature_cols = data_set[['Date_feature', 'trending_feature', 'LDA_feature']]
@@ -68,7 +68,7 @@ def Predict_Score():
     namevalue = name_cols.values
 
     # load model and predict new result
-    loaded_model = pickle.load(open('finalized_model.sav', 'rb'))
+    loaded_model = pickle.load(open(r"C:/Users/sajith/PycharmProjects/fyp/finalized_model.sav", 'rb'))
     result = loaded_model.predict(X)
     df_predict = pd.DataFrame({'Predicted': result})
     df_name = pd.DataFrame(namevalue, columns=['Name'])
@@ -76,3 +76,5 @@ def Predict_Score():
     result = pd.concat([df_name, df_predict], axis=1, join='inner')
     print(result)
     result.to_csv(r'CSV_files\Final_result.csv', mode='a', index=False)
+
+#Model_Build()

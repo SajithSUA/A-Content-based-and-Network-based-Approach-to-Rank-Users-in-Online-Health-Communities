@@ -7,7 +7,7 @@ def getScore_Using_Regression_Model():
     datafile_original = open(r"C:/Users/sajith/PycharmProjects/fyp/datacsv/normalize.csv", "r", encoding="utf-8")
     data_set = pd.read_csv(datafile_original)
 
-    feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post','length_in_comment','updatness']]
+    feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post','length_in_comment','updatness','Info_Score','Emo_Score']]
     name_cols = data_set[['Username']]
 
     pf = PolynomialFeatures(degree=2, include_bias=True)

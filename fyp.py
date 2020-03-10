@@ -1,6 +1,6 @@
 import pandas as pd
 import csv
-data = pd.read_csv("C:/Users/sajith/Desktop/project\data set/Worried I'm overreacting.csv")
+data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/Worried I'm overreacting.csv")
 print(data)
 
 name= data['name']

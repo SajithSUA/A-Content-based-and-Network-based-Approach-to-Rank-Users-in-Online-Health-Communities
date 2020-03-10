@@ -3,9 +3,9 @@ import pandas as pd
 import json
 #data csv file path
 
-a="C:/Users/sajith/PycharmProjects/fyp/datacsv/Final_FeatureSet.csv"
-b="C:/Users/sajith/PycharmProjects/fyp/datacsv/normalize.csv"
-c='C:/Users/sajith/PycharmProjects/fyp/datacsv/Final_result_withRank.csv'
+a="C:/Users/sajith/PycharmProjects/fyp/datacsv/UI/Final_FeatureSet.csv"
+b="C:/Users/sajith/PycharmProjects/fyp/datacsv/UI/normalize.csv"
+c='C:/Users/sajith/PycharmProjects/fyp/datacsv/UI/Final_result_withRank.csv'
 
 app = Flask(__name__)
 @app.route('/')
@@ -55,6 +55,7 @@ def search():
     print(request.form)
     fl = request.form['search']
     data = pd.read_csv(b)
+    datasetUSerRank=pd.read_csv(c)
     name = data['Username']
     index=0
     match=False
@@ -72,6 +73,10 @@ def search():
         NoOFPost = data['No_of_post']
         length = data['length_in_comment']
         updatness = data['updatness']
+        Info_Support= data['Info_Score']
+        Emo_Support=data['Emo_Score']
+        userRank=datasetUSerRank['Predicted Rank']
+        userCategory=datasetUSerRank['User_category']
 
         dataset={}
 
@@ -83,6 +88,11 @@ def search():
         dataset["NoOFPost"] = str(format((NoOFPost[index]/1)*100,'.2f'))+"%"
         dataset["length"] = str(format((length[index]/1)*100,'.2f'))+"%"
         dataset["updatness"] = str(format((updatness[index]/1)*100,'.2f'))+"%"
+        dataset["Info_Score"]=str(format((Info_Support[index]/1)*100,'.2f'))+"%"
+        dataset["Emo_Score"]=str(format((Emo_Support[index]/1)*100,'.2f'))+"%"
+
+        dataset["userRank"]=str(format(userRank[index],'.0f'))
+        dataset["userCategory"]=str(userCategory[index])
         json_dump1 = json.dumps(dataset)
         print(json_dump1)
 
@@ -109,15 +119,17 @@ def test():
     }
 
 def createDataInRanking():
-    data = pd.read_csv(a)
-    name = data['Username']
-    No_of_post = data['No_of_post']
+    data = pd.read_csv(c)
+    dataFrame=pd.DataFrame(data)
+    dataFrame1=dataFrame.sort_values(by=['Predicted Rank'])
+    UserRank=dataFrame1.get('Predicted Rank')
+    name=dataFrame1.get('Username')
     dataset = {}
     index = 0
     name1 = []
     No_of_post1 = []
-    for i in No_of_post:
-        No_of_post1.append(i)
+    for i in UserRank:
+        No_of_post1.append(str(round(int(i))))
     for i in name:
         name1.append(i)
 
@@ -130,7 +142,7 @@ def get_users_Wice_Category(name1,name2):
 
     dataframe = pd.DataFrame(data1)
 
-    data = dataframe.sort_values(by=['Predicted_RFR'])
+    data = dataframe.sort_values(by=['Predicted_MLR'], ascending=False)
 
     data2 = data[data.User_category != name1]
 
@@ -138,7 +150,7 @@ def get_users_Wice_Category(name1,name2):
 
     User_type_name = 'Expert Users'
     name = data3.get('Username')
-    Score = data3.get('Predicted_RFR')
+    Score = data3.get('Predicted_MLR')
     type = data3.get('User_category')
     dataset1 = {}
     name1 = []
@@ -146,7 +158,7 @@ def get_users_Wice_Category(name1,name2):
     for i in name:
         name1.append(i)
     for x in Score:
-        Score1.append(x)
+        Score1.append(str(format(x,'.2f')))
 
     dataset1["name"] = name1
     dataset1["post"] = Score1
