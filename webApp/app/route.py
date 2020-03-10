@@ -1,6 +1,11 @@
 from flask import Flask, render_template, flash, request,jsonify
 import pandas as pd
 import json
+#data csv file path
+
+a="C:/Users/sajith/PycharmProjects/fyp/datacsv/Final_FeatureSet.csv"
+b="C:/Users/sajith/PycharmProjects/fyp/datacsv/normalize.csv"
+c='C:/Users/sajith/PycharmProjects/fyp/datacsv/Final_result_withRank.csv'
 
 app = Flask(__name__)
 @app.route('/')
@@ -15,13 +20,41 @@ def addProduct():
     return render_template('ranking.html',dataset=json_dump)
 
 
+@app.route('/expert', methods=['GET','POST'])
+def getExpert():
+    dataset1=get_users_Wice_Category('intermediate Users', 'Novice Users')
+    dataset1["erro"] = False
+
+    json_dump1 = json.dumps(dataset1)
+    return render_template('expertUsers.html',dataset1=json_dump1)
+
+
+@app.route('/novice', methods=['GET','POST'])
+def getNovice():
+    dataset1=get_users_Wice_Category('intermediate Users', 'Expert Users')
+    dataset1["erro"] = False
+
+    json_dump1 = json.dumps(dataset1)
+    return render_template('NoviceUsers.html',dataset1=json_dump1)
+
+
+@app.route('/intermediate', methods=['GET','POST'])
+def getIntermediate():
+    dataset1=get_users_Wice_Category('Novice Users', 'Expert Users')
+    dataset1["erro"] = False
+
+    json_dump1 = json.dumps(dataset1)
+    return render_template('intermediate.html',dataset1=json_dump1)
+
+
+
 
 @app.route('/search', methods=['GET','POST'])
 def search():
     print(request)
     print(request.form)
     fl = request.form['search']
-    data = pd.read_csv("C:/Users/sajith/PycharmProjects/fyp/datacsv/Final_FeatureSet.csv")
+    data = pd.read_csv(b)
     name = data['Username']
     index=0
     match=False
@@ -43,13 +76,13 @@ def search():
         dataset={}
 
         dataset["name"] = str(name[index])
-        dataset["pageRank"]=str(pageRank[index])
-        dataset["Hub"] = str(Hub[index])
-        dataset["Autho"] = str(Autho[index])
-        dataset["Similarity"] = str(Similarity[index])
-        dataset["NoOFPost"] = str(NoOFPost[index])
-        dataset["length"] = str(length[index])
-        dataset["updatness"] = str(updatness[index])
+        dataset["pageRank"]=str(format((pageRank[index]/1)*100,'.2f'))+"%"
+        dataset["Hub"] = str(format((Hub[index]/1)*100,'.2f'))+"%"
+        dataset["Autho"] = str(format((Autho[index]/1)*100,'.2f'))+"%"
+        dataset["Similarity"] = str(format((Similarity[index]/1)*100,'.2f'))+"%"
+        dataset["NoOFPost"] = str(format((NoOFPost[index]/1)*100,'.2f'))+"%"
+        dataset["length"] = str(format((length[index]/1)*100,'.2f'))+"%"
+        dataset["updatness"] = str(format((updatness[index]/1)*100,'.2f'))+"%"
         json_dump1 = json.dumps(dataset)
         print(json_dump1)
 
@@ -76,7 +109,7 @@ def test():
     }
 
 def createDataInRanking():
-    data = pd.read_csv("C:/Users/sajith/PycharmProjects/fyp/datacsv/Final_FeatureSet.csv")
+    data = pd.read_csv(a)
     name = data['Username']
     No_of_post = data['No_of_post']
     dataset = {}
@@ -92,6 +125,32 @@ def createDataInRanking():
     dataset["post"] = No_of_post1
     return dataset
 
+def get_users_Wice_Category(name1,name2):
+    data1 = pd.read_csv(c)
+
+    dataframe = pd.DataFrame(data1)
+
+    data = dataframe.sort_values(by=['Predicted_RFR'])
+
+    data2 = data[data.User_category != name1]
+
+    data3 = data2[data2.User_category != name2]
+
+    User_type_name = 'Expert Users'
+    name = data3.get('Username')
+    Score = data3.get('Predicted_RFR')
+    type = data3.get('User_category')
+    dataset1 = {}
+    name1 = []
+    Score1 = []
+    for i in name:
+        name1.append(i)
+    for x in Score:
+        Score1.append(x)
+
+    dataset1["name"] = name1
+    dataset1["post"] = Score1
+    return dataset1
 
 if __name__ == '__main__':
     app.run(debug=True)

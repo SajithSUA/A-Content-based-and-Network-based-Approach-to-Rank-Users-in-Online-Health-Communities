@@ -6,6 +6,10 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import os
 import datetime
+import Normalization as Normalization
+import Final_regression_Model_Using_test as Regression_model
+
+dataset="C:/Users/sajith/Desktop/project/data set/merged csvs data.csv"
 
 def get_jaccard_sim(str1, str2):
     a = set(str1.split())
@@ -502,7 +506,7 @@ def remove_existing_CSV():
 
 
 # add data set
-data = pd.read_csv("C:/Users/sajith/Desktop/project/data set/merged csvs data.csv")
+data = pd.read_csv(dataset)
 name_Without_Clear = data['name']
 comment = data['comment']
 post_id = data['id']
@@ -526,10 +530,7 @@ for x in name:
     index += 1
 
 nameList= removesamevalueInlist(name)
-
-
 remove_existing_CSV()
-
 a = datetime.datetime.now()
 
 Final_Number_Of_post_Count=get_no_of_posts(no_of_posts,name,nameList)
@@ -567,6 +568,10 @@ i = datetime.datetime.now()
 Print_final_featuers(nameList,Page_Rank_Result,Final_hubs,Final_authorities,Similarity_Result,Final_Number_Of_post_Count,pr,actual_NoOf_Post,length_in_comment,averge_updatness)
 
 j = datetime.datetime.now()
+
+Normalization.normalization()
+
+Regression_model.getScore_Using_Regression_Model()
 
 
 print("print",j-i)

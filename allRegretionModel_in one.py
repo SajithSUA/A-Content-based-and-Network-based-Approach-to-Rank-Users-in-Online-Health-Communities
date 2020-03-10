@@ -5,9 +5,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
 import seaborn as sb
+import os
 from sklearn import metrics
 from sklearn.preprocessing import PolynomialFeatures
 import pickle
+
+dataset='C:/Users/sajith/Desktop/project/test score genaration/score4.csv'
+
+def remove_existing_SAV():
+    files="C:/Users/sajith/PycharmProjects/fyp"
+    for file1 in os.listdir(files):
+        if file1.endswith('.sav'):
+            os.remove(files + '/' + file1)
 
 def accurency_metrics(y_test, y_pred,name):
     print(name+" reggression accurency metrics")
@@ -49,7 +58,7 @@ def multiple_Leniear_Regression(X_train, X_test, y_train, y_test,feature_cols):
     return y_pred_MLR
 
 def Random_forest_regression(X_train, X_test, y_train, y_test):
-    regressor = RandomForestRegressor(n_estimators=1000)
+    regressor = RandomForestRegressor(n_estimators=450)
     regressor.fit(X_train, y_train)
 
     # save model
@@ -110,7 +119,7 @@ def draw_chart(y_test,y_pred_MLR,y_pred_RFLR,y_pred_PR):
     plt.show()
 
 def main():
-    datafile = open('C:/Users/sajith/Desktop/project/test score genaration/score4.csv', 'r', encoding="utf-8")
+    datafile = open(dataset, 'r', encoding="utf-8")
     data_set = pd.read_csv(datafile)
 
     feature_cols = data_set[['Page_Rank','Hub','Similarity','No_of_post','length_in_comment','updatness']]

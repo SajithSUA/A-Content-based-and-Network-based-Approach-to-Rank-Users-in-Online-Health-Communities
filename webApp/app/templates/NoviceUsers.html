@@ -18,7 +18,7 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
-  <title>Ranking</title>
+  <title>Novice Users</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -33,10 +33,10 @@ tr:nth-child(even) {
       <a class="navbar-brand" href="/">User Ranking</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/ranking">Home</a></li>
-      <li><a href="/expert">Expert Users</a></li>
-      <li><a href="/intermediate">Intermidiate Users</a></li>
-      <li><a href="/novice">Novice Users</a></li>
+      <li ><a href="/ranking">Home</a></li>
+      <li ><a href="/expert">Expert Users</a></li>
+      <li ><a href="/intermediate">Intermidiate Users</a></li>
+      <li class="active" ><a href="/novice">Novice Users</a></li>
     </ul>
     <form class="navbar-form navbar-left" action="/search" method="POST" >
       <div class="form-group">
@@ -53,7 +53,7 @@ tr:nth-child(even) {
     <table id="myTable">
         <tr>
         <th>Name</th>
-        <th>No of Post</th>
+        <th>User Score</th>
 
         </tr>
     </table>
@@ -71,7 +71,7 @@ function PrintErrorMassage() {
 }
 
 function CreateTableFromJSON() {
-			var myBooks = JSON.parse('{{ dataset | safe }}');
+			var myBooks = JSON.parse('{{ dataset1 | safe }}');
 			console.log(myBooks)
 			var name=myBooks.name
 			var post=myBooks.post
