@@ -42,15 +42,25 @@
 					<p class="input100" id="a1">
 				</div>
 
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Price">
-					<span class="label-input100">Page Rank Score</span>
-					<p class="input100" id="a2">
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Product Name">
+					<span class="label-input100">User Rank</span>
+					<p class="input100" id="a10">
 				</div>
 
-                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Price">
-					<span class="label-input100">Hub score</span>
-					<p class="input100" id="a12">
+                <div class="wrap-input100 validate-input bg1" data-validate="Please Type Product Name">
+					<span class="label-input100">User Category</span>
+					<p class="input100" id="a11">
 				</div>
+
+<!--				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Price">-->
+<!--					<span class="label-input100">Page Rank Score</span>-->
+<!--					<p class="input100" id="a2">-->
+<!--				</div>-->
+
+<!--                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Price">-->
+<!--					<span class="label-input100">Hub score</span>-->
+<!--					<p class="input100" id="a12">-->
+<!--				</div>-->
 
                 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Price">
 					<span class="label-input100">Number of post</span>
@@ -62,10 +72,10 @@
 					<p class="input100" id="a5">
 				</div>
 
-                 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Price">
-					<span class="label-input100">Average Similarity score</span>
-					<p class="input100" id="a6">
-				</div>
+<!--                 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Price">-->
+<!--					<span class="label-input100">Average Similarity score</span>-->
+<!--					<p class="input100" id="a6">-->
+<!--				</div>-->
 
                  <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Price">
 					<span class="label-input100">Average updatness score</span>
@@ -82,15 +92,7 @@
 					<p class="input100" id="a9">
 				</div>
 
-                <div class="wrap-input100 validate-input bg1" data-validate="Please Type Product Name">
-					<span class="label-input100">User Rank</span>
-					<p class="input100" id="a10">
-				</div>
 
-                <div class="wrap-input100 validate-input bg1" data-validate="Please Type Product Name">
-					<span class="label-input100">User Category</span>
-					<p class="input100" id="a11">
-				</div>
 
 
 				<div class="container-contact100-form-btn">
@@ -113,11 +115,11 @@ console.log("sajith")
     var Mydata = JSON.parse('{{ datset | safe}}');
 console.log(Mydata)
 document.getElementById("a1").innerHTML = Mydata.name
-document.getElementById("a2").innerHTML = Mydata.pageRank
-document.getElementById("a12").innerHTML = Mydata.Hub
+<!--document.getElementById("a2").innerHTML = Mydata.pageRank-->
+<!--document.getElementById("a12").innerHTML = Mydata.Hub-->
 document.getElementById("a4").innerHTML = Mydata.NoOFPost
 document.getElementById("a5").innerHTML = Mydata.length
-document.getElementById("a6").innerHTML = Mydata.Similarity
+<!--document.getElementById("a6").innerHTML = Mydata.Similarity-->
 document.getElementById("a7").innerHTML = Mydata.updatness
 document.getElementById("a8").innerHTML = Mydata.Info_Score
 document.getElementById("a9").innerHTML = Mydata.Emo_Score

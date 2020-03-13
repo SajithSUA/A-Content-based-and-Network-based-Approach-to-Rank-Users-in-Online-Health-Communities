@@ -32,4 +32,3 @@ def rank_scores():
     resultsList.to_csv(r'C:/Users/sajith/PycharmProjects/fyp/datacsv/Final_result_withRank.csv',mode='a',index=False)
 
 
-

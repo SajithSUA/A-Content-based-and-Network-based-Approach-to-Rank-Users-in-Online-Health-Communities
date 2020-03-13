@@ -27,4 +27,3 @@ def normalization():
     df_post = pd.DataFrame(dataSet, columns=['Page_Rank','Hub','Authority','Similarity','No_of_post','length_in_comment','updatness','Info_Score','Emo_Score','Username'])
     df_post.to_csv(r'C:/Users/sajith/PycharmProjects/fyp/datacsv/normalize.csv', mode='a',index=False)
 
-normalization()

@@ -23,6 +23,8 @@ def accurency_metrics(y_test, y_pred,name):
     print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
     print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
     print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+    #print('R squared:', np.sqrt(metrics.r2_score(y_test, y_pred)))
+
 
 def create_accurency(y_test, y_pred,name):
     print(name + " reggression accurency metrics")

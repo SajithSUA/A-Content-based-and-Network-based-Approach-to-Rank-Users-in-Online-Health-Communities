@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0424b2f7-8048-422c-a215-a9e3c8107e64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/webApp/app/templates/ranking.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlldatasetsocialnetworkCreate.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlldatasetsocialnetworkCreate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Normalization.py" beforeDir="false" afterPath="$PROJECT_DIR$/Normalization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Normalized_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/Normalized_feature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allRegretionModel_in one.py" beforeDir="false" afterPath="$PROJECT_DIR$/allRegretionModel_in one.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datacsv/allRegretionModel_in one.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/finalized_model.sav" beforeDir="false" afterPath="$PROJECT_DIR$/finalized_model.sav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/person.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ranking_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ranking_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/app/route.py" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/app/route.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/app/templates/addProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/app/templates/addProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/app/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/app/templates/home.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,12 +25,39 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/regrationModel.py">
+        <entry file="file://$PROJECT_DIR$/AlldatasetsocialnetworkCreate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+            <state relative-caret-position="184">
+              <caret line="571" selection-start-line="571" selection-end-line="571" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#639#766#0" />
+                <element signature="e#820#1010#0" />
+                <element signature="e#1056#2658#0" />
+                <element signature="e#2727#3079#0" />
+                <element signature="e#3146#11398#0" />
+                <element signature="e#11444#13237#0" />
+                <element signature="e#12332#12398#0" />
+                <element signature="e#13272#13477#0" />
+                <element signature="e#13533#14387#0" />
+                <element signature="e#14606#15654#0" />
+                <element signature="e#15699#15927#0" />
+                <element signature="e#15993#16628#0" />
+                <element signature="e#16663#17490#0" />
+                <element signature="e#17532#17976#0" />
+                <element signature="e#18010#18352#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Normalization.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-25">
+              <caret line="17" column="43" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -31,20 +66,46 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/allRegretionModel_in one.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="120" column="91" selection-start-line="120" selection-start-column="91" selection-end-line="120" selection-end-column="91" />
+            <state relative-caret-position="122">
+              <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#449#614#0" />
+                <element signature="e#666#1024#0" />
+                <element signature="e#1006#1396#0" />
+                <element signature="e#1482#2159#0" />
+                <element signature="e#2229#2789#0" />
+                <element signature="e#2838#3755#0" />
+                <element signature="e#3819#4293#0" />
+                <element signature="e#4313#4946#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webApp/app/route.py">
+        <entry file="file://$PROJECT_DIR$/Final_regression_Model_Using_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="46" column="20" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="20" />
+            <state relative-caret-position="92">
+              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#132#1656#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ranking_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#71#323#0" />
+                <element signature="e#348#1312#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,12 +113,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webApp/app/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-299">
-              <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+            <state relative-caret-position="180">
+              <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -65,12 +126,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webApp/app/templates/ranking.html">
+        <entry file="file://$PROJECT_DIR$/webApp/app/route.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1042">
-              <caret line="71" column="28" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="28" />
+            <state relative-caret-position="1242">
+              <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
               <folding>
-                <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#0#64#0" expanded="true" />
+                <element signature="e#992#1197#0" />
+                <element signature="e#1279#1479#0" />
+                <element signature="e#3567#3764#0" />
+                <element signature="e#3797#4255#0" />
+                <element signature="e#4303#4914#0" />
               </folding>
             </state>
           </provider>
@@ -79,35 +145,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webApp/app/templates/addProduct.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2806">
-              <caret line="122" column="53" selection-start-line="122" selection-start-column="53" selection-end-line="122" selection-end-column="53" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#div#12;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/randomfores regretssion.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="44" selection-start-line="44" selection-end-line="52" selection-end-column="44" />
-              <folding>
-                <element signature="e#1#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pagerankalgo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-698">
+              <caret line="77" column="26" selection-start-line="74" selection-start-column="20" selection-end-line="77" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -137,6 +176,12 @@
       <find>plt</find>
       <find>df</find>
       <find>addProduct</find>
+      <find>process</find>
+      <find>y</find>
+      <find>gram</find>
+      <find>dataset</find>
+      <find>data</find>
+      <find>TextBlob</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,7 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/fyp.py" />
         <option value="$PROJECT_DIR$/scrap code.py" />
         <option value="$PROJECT_DIR$/numberOfMention.py" />
         <option value="$PROJECT_DIR$/hitsAlgo.py" />
@@ -156,18 +200,31 @@
         <option value="$PROJECT_DIR$/createSocial networ.py" />
         <option value="$PROJECT_DIR$/create heatmap.py" />
         <option value="$PROJECT_DIR$/desision tree rigresion.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/polinomialRegression.py" />
         <option value="$PROJECT_DIR$/randomfores regretssion.py" />
         <option value="$PROJECT_DIR$/datacsv/allRegretionModel_in one.py" />
         <option value="$PROJECT_DIR$/regrationModel.py" />
-        <option value="$PROJECT_DIR$/AlldatasetsocialnetworkCreate.py" />
-        <option value="$PROJECT_DIR$/allRegretionModel_in one.py" />
-        <option value="$PROJECT_DIR$/Normalization.py" />
+        <option value="$PROJECT_DIR$/fyp.py" />
+        <option value="$PROJECT_DIR$/webApp/app/templates/intermediate.html" />
+        <option value="$PROJECT_DIR$/webApp/app/templates/expertUsers.html" />
+        <option value="$PROJECT_DIR$/webApp/app/templates/NoviceUsers.html" />
+        <option value="$PROJECT_DIR$/Linnear_Regression.py" />
+        <option value="$PROJECT_DIR$/Feature_extrection.py" />
         <option value="$PROJECT_DIR$/webApp/app/templates/ranking.html" />
-        <option value="$PROJECT_DIR$/webApp/app/route.py" />
-        <option value="$PROJECT_DIR$/webApp/app/templates/addProduct.html" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/f2_Classification_Model.py" />
+        <option value="$PROJECT_DIR$/f5_Regression_Models.py" />
+        <option value="$PROJECT_DIR$/f6_Extaract_Year.py" />
+        <option value="$PROJECT_DIR$/f7_Final_Score_Calculation.py" />
+        <option value="$PROJECT_DIR$/Normalization.py" />
+        <option value="$PROJECT_DIR$/Normalized_feature.py" />
+        <option value="$PROJECT_DIR$/allRegretionModel_in one.py" />
+        <option value="$PROJECT_DIR$/Final_regression_Model_Using_test.py" />
+        <option value="$PROJECT_DIR$/ranking_model.py" />
         <option value="$PROJECT_DIR$/webApp/app/templates/home.html" />
+        <option value="$PROJECT_DIR$/webApp/app/templates/addProduct.html" />
+        <option value="$PROJECT_DIR$/webApp/app/route.py" />
+        <option value="$PROJECT_DIR$/AlldatasetsocialnetworkCreate.py" />
       </list>
     </option>
   </component>
@@ -178,13 +235,15 @@
         <option value="$PROJECT_DIR$/.idea/dictionaries/sajith.xml" />
         <option value="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="245" />
+    <option name="y" value="-20" />
+    <option name="width" value="1750" />
+    <option name="height" value="980" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -192,17 +251,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="fyp" type="b2602c69:ProjectViewProjectNode" />
               <item name="fyp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fyp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fyp" type="462c0819:PsiDirectoryNode" />
-              <item name="datacsv" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fyp" type="b2602c69:ProjectViewProjectNode" />
@@ -226,10 +281,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/project/otheter modules/nuwan/FYP" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -244,7 +299,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.route">
+  <component name="RunManager" selected="Python.AlldatasetsocialnetworkCreate">
     <configuration name="AlldatasetsocialnetworkCreate" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fyp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -266,7 +321,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Normalization" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Final_regression_Model_Using_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fyp" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -278,7 +333,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Normalization.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Final_regression_Model_Using_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -287,7 +342,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="allRegretionModel_in one (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="allRegretionModel_in one" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fyp" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -308,7 +363,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="regrationModel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ranking_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fyp" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -320,7 +375,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/regrationModel.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ranking_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -352,11 +407,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.route" />
-        <item itemvalue="Python.Normalization" />
-        <item itemvalue="Python.allRegretionModel_in one (1)" />
         <item itemvalue="Python.AlldatasetsocialnetworkCreate" />
-        <item itemvalue="Python.regrationModel" />
+        <item itemvalue="Python.route" />
+        <item itemvalue="Python.ranking_model" />
+        <item itemvalue="Python.Final_regression_Model_Using_test" />
+        <item itemvalue="Python.allRegretionModel_in one" />
       </list>
     </recent_temporary>
   </component>
@@ -387,13 +442,13 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49685535" visible="true" weight="0.14398943" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49685535" visible="true" weight="0.15323646" />
       <window_info id="Structure" order="1" sideWeight="0.5031447" side_tool="true" weight="0.08058124" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.10891089" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32531825" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27298445" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34512022" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
@@ -423,26 +478,6 @@
           <line>384</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/AlldatasetsocialnetworkCreate.py</url>
-          <line>431</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/AlldatasetsocialnetworkCreate.py</url>
-          <line>87</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/allRegretionModel_in one.py</url>
-          <line>68</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/webApp/app/route.py</url>
-          <line>34</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -454,110 +489,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/person.csv" />
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/networkx/generators/random_graphs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5954">
-          <caret line="611" column="4" selection-start-line="611" selection-start-column="4" selection-end-line="611" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageRankScore.csv" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/sklearn/metrics/pairwise.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22220">
-          <caret line="1037" column="12" selection-start-line="1037" selection-start-column="11" selection-end-line="1037" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/nltk/stem/wordnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hitsAlgo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/networkx/algorithms/link_analysis/hits_alg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="94" column="9" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrap code.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="15" column="68" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/pandas/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/pandas/core/series.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="866" selection-start-line="866" selection-end-line="866" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/pandas/core/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="330" selection-start-line="330" selection-end-line="330" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fyp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/sklearn/linear_model/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1866">
-          <caret line="453" column="68" selection-start-line="453" selection-start-column="58" selection-end-line="453" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/numberOfMention.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="49" column="40" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/similarityCalculation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="30" column="68" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cosine similarity.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1232">
@@ -616,13 +547,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/datacsv/allRegretionModel_in one.py" />
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="377" selection-start-column="377" selection-end-column="377" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/create heatmap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -657,46 +581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AlldatasetsocialnetworkCreate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11477">
-          <caret line="506" selection-start-line="506" selection-end-line="506" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Normalization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="24" column="139" selection-start-line="24" selection-start-column="139" selection-end-line="24" selection-end-column="139" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regrationModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/allRegretionModel_in one.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="120" column="91" selection-start-line="120" selection-start-column="91" selection-end-line="120" selection-end-column="91" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/pandas/core/indexes/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -711,10 +595,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/flask/app.py">
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/networkx/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hitsAlgo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="1934" selection-start-line="1934" selection-end-line="1934" />
+        <state relative-caret-position="276">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fyp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -730,7 +630,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/randomfores regretssion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
+        <state relative-caret-position="1012">
           <caret line="44" selection-start-line="44" selection-end-line="52" selection-end-column="44" />
           <folding>
             <element signature="e#1#20#0" expanded="true" />
@@ -738,42 +638,318 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webApp/app/route.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/sklearn/preprocessing/data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="46" column="20" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="20" />
+        <state relative-caret-position="411">
+          <caret line="1435" selection-start-line="1435" selection-end-line="1435" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webApp/app/templates/addProduct.html">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/http/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2806">
-          <caret line="122" column="53" selection-start-line="122" selection-start-column="53" selection-end-line="122" selection-end-column="53" />
+        <state relative-caret-position="150">
+          <caret line="425" selection-start-line="425" selection-end-line="425" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/socketserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="649" selection-start-line="649" selection-end-line="649" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="864" selection-start-line="864" selection-end-line="864" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/werkzeug/serving.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="322" selection-start-line="322" selection-end-line="322" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/werkzeug/debug/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="309" selection-start-line="309" selection-end-line="309" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="2462" selection-start-line="2462" selection-end-line="2462" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webApp/app/templates/NoviceUsers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
           <folding>
-            <element signature="n#style#0;n#button#0;n#div#12;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webApp/app/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/webApp/app/templates/expertUsers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299">
-          <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+        <state relative-caret-position="92">
+          <caret line="16" column="20" selection-end-line="100" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webApp/app/templates/intermediate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="32" column="51" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature_extrection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1201#1982#0" />
+            <element signature="e#2027#2210#0" />
+            <element signature="e#2227#2718#0" />
+            <element signature="e#2778#3101#0" />
+            <element signature="e#3145#3379#0" />
+            <element signature="e#3415#3860#0" />
+            <element signature="e#3900#4215#0" />
+            <element signature="e#4242#4680#0" />
+            <element signature="e#4712#5759#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Linnear_Regression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="63" column="42" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webApp/app/templates/ranking.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1042">
-          <caret line="71" column="28" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="28" />
+        <state relative-caret-position="1183">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/f4_Train_Regressors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-345">
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/f5_Regression_Models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="96" column="31" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/f6_Extaract_Year.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/f7_Final_Score_Calculation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="108" column="36" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Normalized_feature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/f3_Preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2116">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regrationModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1311">
+          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/f2_Classification_Model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding>
+            <element signature="e#34#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/f1_Train_Classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-164">
+          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webApp/app/templates/addProduct.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-698">
+          <caret line="77" column="26" selection-start-line="74" selection-start-column="20" selection-end-line="77" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webApp/app/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Final_regression_Model_Using_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#132#1656#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ranking_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#71#323#0" />
+            <element signature="e#348#1312#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/allRegretionModel_in one.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#449#614#0" />
+            <element signature="e#666#1024#0" />
+            <element signature="e#1006#1396#0" />
+            <element signature="e#1482#2159#0" />
+            <element signature="e#2229#2789#0" />
+            <element signature="e#2838#3755#0" />
+            <element signature="e#3819#4293#0" />
+            <element signature="e#4313#4946#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Normalization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlldatasetsocialnetworkCreate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="571" selection-start-line="571" selection-end-line="571" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#639#766#0" />
+            <element signature="e#820#1010#0" />
+            <element signature="e#1056#2658#0" />
+            <element signature="e#2727#3079#0" />
+            <element signature="e#3146#11398#0" />
+            <element signature="e#11444#13237#0" />
+            <element signature="e#12332#12398#0" />
+            <element signature="e#13272#13477#0" />
+            <element signature="e#13533#14387#0" />
+            <element signature="e#14606#15654#0" />
+            <element signature="e#15699#15927#0" />
+            <element signature="e#15993#16628#0" />
+            <element signature="e#16663#17490#0" />
+            <element signature="e#17532#17976#0" />
+            <element signature="e#18010#18352#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webApp/app/route.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+            <element signature="e#992#1197#0" />
+            <element signature="e#1279#1479#0" />
+            <element signature="e#3567#3764#0" />
+            <element signature="e#3797#4255#0" />
+            <element signature="e#4303#4914#0" />
           </folding>
         </state>
       </provider>

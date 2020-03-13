@@ -346,10 +346,10 @@ def pageRank_Algo(FinalsocialNetwork):
 
     def display_format(my_vector, my_decimal):
         return np.round((my_vector).astype(np.float), decimals=my_decimal)
-
+    #initial page rank value
     my_dp = Fraction(1, len(nameList))
 
-    print(my_dp)
+    #print(my_dp)
     Ex = np.zeros((len(nameList), len(nameList)))
 
     Ex[:] = my_dp
@@ -404,7 +404,7 @@ def Hits_algorithem(FinalsocialNetwork,nameList):
 
 
     hubs, authorities = nx.hits(G, max_iter= 50000000, normalized=True)
-# page rank value genarate in nx library
+    # page rank value genarate in nx library
     pr = nx.pagerank(G, alpha=0.85)
 
     # The in-built hits function returns two dictionaries keyed by nodes

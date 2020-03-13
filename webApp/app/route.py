@@ -56,6 +56,7 @@ def search():
     fl = request.form['search']
     data = pd.read_csv(b)
     datasetUSerRank=pd.read_csv(c)
+    dataInPost=pd.read_csv(a)
     name = data['Username']
     index=0
     match=False
@@ -70,8 +71,8 @@ def search():
         Hub = data['Hub']
         Autho = data['Authority']
         Similarity = data['Similarity']
-        NoOFPost = data['No_of_post']
-        length = data['length_in_comment']
+        NoOFPost = dataInPost['No_of_post']
+        length = dataInPost['length_in_comment']
         updatness = data['updatness']
         Info_Support= data['Info_Score']
         Emo_Support=data['Emo_Score']
@@ -85,8 +86,8 @@ def search():
         dataset["Hub"] = str(format((Hub[index]/1)*100,'.2f'))+"%"
         dataset["Autho"] = str(format((Autho[index]/1)*100,'.2f'))+"%"
         dataset["Similarity"] = str(format((Similarity[index]/1)*100,'.2f'))+"%"
-        dataset["NoOFPost"] = str(format((NoOFPost[index]/1)*100,'.2f'))+"%"
-        dataset["length"] = str(format((length[index]/1)*100,'.2f'))+"%"
+        dataset["NoOFPost"] = str(NoOFPost[index])
+        dataset["length"] = str(format(length[index],'.0f'))
         dataset["updatness"] = str(format((updatness[index]/1)*100,'.2f'))+"%"
         dataset["Info_Score"]=str(format((Info_Support[index]/1)*100,'.2f'))+"%"
         dataset["Emo_Score"]=str(format((Emo_Support[index]/1)*100,'.2f'))+"%"
